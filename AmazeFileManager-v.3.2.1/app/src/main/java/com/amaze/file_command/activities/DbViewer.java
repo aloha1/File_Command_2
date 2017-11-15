@@ -81,11 +81,11 @@ public class DbViewer extends ThemedActivity {
             getWindow().getDecorView().setBackgroundColor(Utils.getColor(this, R.color.holo_dark_background));
         }
         setContentView(R.layout.activity_db_viewer);
-        toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (SDK_INT >= 21) {
             ActivityManager.TaskDescription taskDescription = new ActivityManager.TaskDescription
-                    ("Amaze", ((BitmapDrawable) ContextCompat.getDrawable(this, R.mipmap
+                    ("File Command", ((BitmapDrawable) ContextCompat.getDrawable(this, R.mipmap
                             .ic_launcher))
                             .getBitmap(),
                             getColorPreference().getColor(ColorUsage.getPrimary(MainActivity.currentTab)));
