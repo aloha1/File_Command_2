@@ -174,7 +174,7 @@
             android:clickable="true"
             android:paddingTop="0dp"
             android:paddingBottom="8dp"
-            android:src="@color/divider"
+
             android:background="@android:color/transparent"
             android:layout_above="@+id/ftpbutton"
             android:id="@+id/divider1"></ImageView>

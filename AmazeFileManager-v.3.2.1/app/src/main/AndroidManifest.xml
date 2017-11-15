@@ -30,11 +30,11 @@
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         tools:replace="android:label"
-        android:label="File Command"
+        android:label="@string/app_name"
         android:banner="@drawable/about_header">
 
         <activity
-            android:label="Amaze"
+            android:label="@string/app_name"
             android:launchMode="singleInstance"
             android:name="com.amaze.file_command.activities.MainActivity"
             android:theme="@style/appCompatLight">

@@ -934,7 +934,7 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
             return true;
         }
         if (fragmentName.contains("TabFragment")) {
-            appbar.setTitle("Amaze");
+            appbar.setTitle(getResources().getString(R.string.app_name));
             if (useGridView) {
                 s.setTitle(getResources().getString(R.string.gridview));
             } else {
