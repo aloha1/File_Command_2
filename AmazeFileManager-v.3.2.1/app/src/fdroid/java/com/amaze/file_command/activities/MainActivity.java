@@ -439,8 +439,6 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
             setTaskDescription(taskDescription);
         }
 
-
-
         if (!sharedPref.getBoolean(KEY_PREFERENCE_BOOKMARKS_ADDED, false)) {
             utilsHandler.addCommonBookmarks();
             sharedPref.edit().putBoolean(KEY_PREFERENCE_BOOKMARKS_ADDED, true).commit();
@@ -825,6 +823,7 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
         android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         //title.setText(R.string.app_name);
         TabFragment tabFragment = new TabFragment();
+
         if (path != null && path.length() > 0) {
             Bundle b = new Bundle();
             b.putString("path", path);
@@ -894,29 +893,6 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.activity_extra, menu);
-        /*
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        searchView.setIconifiedByDefault(false);
-
-        MenuItem search = menu.findItem(R.id.search);
-        MenuItemCompat.setOnActionExpandListener(search, new MenuItemCompat.OnActionExpandListener() {
-            @Override
-            public boolean onMenuItemActionExpand(MenuItem item) {
-                // Stretching the SearchView across width of the Toolbar
-                toolbar.setContentInsetsRelative(0, 0);
-                return true;
-            }
-
-            @Override
-            public boolean onMenuItemActionCollapse(MenuItem item) {
-                // Restoring
-                toolbar.setContentInsetsRelative(TOOLBAR_START_INSET, 0);
-                return true;
-            }
-        });
-        */
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -1506,9 +1482,9 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
             if (quickAccessPref[5])
                 sectionItems.add(new EntryItem(getResources().getString(R.string.documents), "3",
                         ContextCompat.getDrawable(this, R.drawable.ic_doc_doc_am)));
-            if (quickAccessPref[6])
-                sectionItems.add(new EntryItem(getResources().getString(R.string.apks), "4",
-                        ContextCompat.getDrawable(this, R.drawable.ic_doc_apk_grid)));
+//            if (quickAccessPref[6])
+//                sectionItems.add(new EntryItem(getResources().getString(R.string.apks), "4",
+//                        ContextCompat.getDrawable(this, R.drawable.ic_doc_apk_grid)));
         } else {
             sectionItems.remove(sectionItems.size() - 1); //Deletes last divider
         }

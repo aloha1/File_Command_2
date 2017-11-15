@@ -12,9 +12,9 @@ import com.amaze.file_command.R;
 public enum ColorUsage {
     PRIMARY("skin", R.color.primary_indigo),
     PRIMARY_TWO("skin_two", R.color.primary_indigo),
-    ACCENT("accent_skin", R.color.primary_pink),
-    ICON_SKIN("icon_skin", R.color.primary_pink),
-    CURRENT_TAB("current_tab", R.color.primary_pink);
+    ACCENT("accent_skin", R.color.primary_blue),
+    ICON_SKIN("icon_skin", R.color.primary_blue),
+    CURRENT_TAB("current_tab", R.color.primary_blue);
 
     /**
      * The String representation of the ColorUsage

@@ -76,6 +76,7 @@ public class IconHolder {
     private HandlerThread mWorkerThread;
     private Handler mWorkerHandler;
 
+
     private static class LoadResult {
         String fso;
         Bitmap result;
