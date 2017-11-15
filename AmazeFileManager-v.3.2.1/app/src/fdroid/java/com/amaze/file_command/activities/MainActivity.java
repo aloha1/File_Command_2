@@ -823,13 +823,14 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
         android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         //title.setText(R.string.app_name);
         TabFragment tabFragment = new TabFragment();
-
+        FTPServerFragment ftpServerFragment = new FTPServerFragment();
         if (path != null && path.length() > 0) {
             Bundle b = new Bundle();
             b.putString("path", path);
             tabFragment.setArguments(b);
         }
-        transaction.replace(R.id.content_frame, tabFragment);
+        transaction.replace(R.id.content_frame, ftpServerFragment);
+        //transaction.replace(R.id.content_frame, tabFragment);
         // Commit the transaction
         selectedStorage = SELECT_0;
         transaction.addToBackStack("tabt" + 1);
