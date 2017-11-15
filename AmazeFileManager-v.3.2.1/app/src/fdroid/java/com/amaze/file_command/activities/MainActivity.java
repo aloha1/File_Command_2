@@ -1854,16 +1854,7 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
         }
     }
 
-    //TODO unused method
-    public void invalidateFab(int openmode) {
-        if (openmode == 2) {
-            floatingActionButton.setVisibility(View.INVISIBLE);
-            floatingActionButton.hideMenuButton(true);
-        } else {
-            floatingActionButton.setVisibility(View.VISIBLE);
-            floatingActionButton.showMenuButton(true);
-        }
-    }
+
 
     public void renameBookmark(final String title, final String path) {
         if (dataUtils.containsBooks(new String[]{title, path}) != -1) {
