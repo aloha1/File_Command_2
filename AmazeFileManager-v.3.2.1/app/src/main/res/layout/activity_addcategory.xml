@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout android:id="@+id/layout_tick_picture"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/image_tick_picture"
+                    android:layout_width="@dimen/digit_big_height"
+                    android:layout_height="@dimen/digit_big_height"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:src="@drawable/square"/>
+                <TextView
+                    android:id="@+id/text_tick_picture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:text="@string/text_tick_picture"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/layout_tick_music"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/image_tick_music"
+                    android:layout_width="@dimen/digit_big_height"
+                    android:layout_height="@dimen/digit_big_height"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:src="@drawable/square"/>
+                <TextView
+                    android:id="@+id/text_tick_music"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:text="@string/text_tick_music"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/layout_tick_videos"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/image_tick_videos"
+                    android:layout_width="@dimen/digit_big_height"
+                    android:layout_height="@dimen/digit_big_height"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:src="@drawable/square"/>
+                <TextView
+                    android:id="@+id/text_tick_videos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:text="@string/text_tick_videos"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/layout_tick_documents"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/image_tick_documents"
+                    android:layout_width="@dimen/digit_big_height"
+                    android:layout_height="@dimen/digit_big_height"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:src="@drawable/square"/>
+                <TextView
+                    android:id="@+id/text_tick_documents"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:text="@string/text_tick_documents"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/layout_tick_archives"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/image_tick_archives"
+                    android:layout_width="@dimen/digit_big_height"
+                    android:layout_height="@dimen/digit_big_height"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:src="@drawable/square"/>
+                <TextView
+                    android:id="@+id/text_tick_archives"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:text="@string/text_tick_archives"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/layout_tick_downloads"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/image_tick_downloads"
+                    android:layout_width="@dimen/digit_big_height"
+                    android:layout_height="@dimen/digit_big_height"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:src="@drawable/square"/>
+                <TextView
+                    android:id="@+id/text_tick_downloads"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:text="@string/text_tick_downloads"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/layout_tick_secured_files"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/image_tick_secured_files"
+                    android:layout_width="@dimen/digit_big_height"
+                    android:layout_height="@dimen/digit_big_height"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:src="@drawable/square"/>
+                <TextView
+                    android:id="@+id/text_tick_secured_files"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:text="@string/text_tick_secured_files"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/layout_tick_recent_files"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/image_tick_recent_files"
+                    android:layout_width="@dimen/digit_big_height"
+                    android:layout_height="@dimen/digit_big_height"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:src="@drawable/square"/>
+                <TextView
+                    android:id="@+id/text_tick_recent_files"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:text="@string/text_tick_recent_files"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/layout_tick_convert_files"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/image_tick_convert_files"
+                    android:layout_width="@dimen/digit_big_height"
+                    android:layout_height="@dimen/digit_big_height"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:src="@drawable/square"/>
+                <TextView
+                    android:id="@+id/text_tick_convert_files"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:text="@string/text_tick_convert_files"/>
+            </LinearLayout>
+
+            <!--<LinearLayout android:id="@+id/layout_tick_recycle_bin"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+                <!--<ImageView-->
+                    <!--android:id="@+id/image_tick_recycle_bin"-->
+                    <!--android:layout_width="@dimen/digit_big_height"-->
+                    <!--android:layout_height="@dimen/digit_big_height"-->
+                    <!--android:layout_margin="@dimen/activity_margin_smaller"-->
+                    <!--android:src="@drawable/square"/>-->
+                <!--<TextView-->
+                    <!--android:id="@+id/text_tick_recycle_bin"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="@dimen/activity_margin_smaller"-->
+                    <!--android:text="@string/text_tick_recycle_bin"/>-->
+            <!--</LinearLayout>-->
+
+            <LinearLayout android:id="@+id/layout_tick_favorites"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/image_tick_favorites"
+                    android:layout_width="@dimen/digit_big_height"
+                    android:layout_height="@dimen/digit_big_height"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:src="@drawable/square"/>
+                <TextView
+                    android:id="@+id/text_tick_favorites"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:text="@string/text_tick_favorites"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/layout_tick_pc_file_transfer"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/image_tick_pc_files_transfer"
+                    android:layout_width="@dimen/digit_big_height"
+                    android:layout_height="@dimen/digit_big_height"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:src="@drawable/square"/>
+                <TextView
+                    android:id="@+id/text_tick_pc_file_transfer"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_tick_pc_files_transfer"/>
+            </LinearLayout>
+
+            <!--<LinearLayout android:id="@+id/layout_tick_screen_sharing"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+                <!--<ImageView-->
+                    <!--android:id="@+id/image_tick_screen_sharing"-->
+                    <!--android:layout_width="@dimen/digit_big_height"-->
+                    <!--android:layout_height="@dimen/digit_big_height"-->
+                    <!--android:layout_margin="@dimen/activity_margin_smaller"-->
+                    <!--android:src="@drawable/square"/>-->
+                <!--<TextView-->
+                    <!--android:id="@+id/text_tick_screen_sharing"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="@dimen/activity_margin_smaller"-->
+                    <!--android:text="@string/text_tick_screen_sharing"/>-->
+            <!--</LinearLayout>-->
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

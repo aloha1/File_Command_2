@@ -689,4 +689,47 @@
     <string name="typeablepaths_title">Custom paths</string>
     <string name="typeablepaths_summary">Long press path bar type a custom path</string>
     <string name="send_email_to">Send an e-mail to</string>
+
+
+
+    <string name="our_recommend_app">Our Recommended App</string>
+    <string name="title_add_category">Add Category</string>
+    <string name="remove_ads">Remove Ads</string>
+
+    <!--File Command-->
+    <string name="file_command_title">File Command</string>
+    <string name="file_command_content">File Commander is a feature-rich, powerful file manager that allows you to handle any file on your
+        Android device or cloud storage via a clean and intuitive interface. You can separately handle libraries of pictures, music, videos,
+        documents, as well as rename, delete, move, zip, convert and send files with just a few taps. Also, with our File Converter feature,
+        you can easily convert your files into one of more 1200 different formats. </string>
+    <string name="click_to_exit">Click Again To Exit</string>
+    <!--data base-->
+    <string name="text_tick_go_premium">Go Premium</string>
+    <string name="text_tick_home">Home</string>
+    <string name="text_tick_picture">Picture</string>
+    <string name="text_tick_internal_shared_storage">Internal Shared Storage</string>
+    <string name="text_tick_ftp">FTP</string>
+    <string name="text_tick_music">Music</string>
+    <string name="text_tick_videos">Videos</string>
+    <string name="text_tick_documents">Documents</string>
+    <string name="text_tick_archives">Archives</string>
+    <string name="text_tick_downloads">Downloads</string>
+    <string name="text_tick_secured_files">Secured Files</string>
+    <string name="text_tick_recent_files">Recent Files</string>
+    <string name="text_tick_convert_files">Convert Files</string>
+    <string name="text_tick_recycle_bin">Recycle Bin</string>
+    <string name="text_tick_favorites">Favorites</string>
+    <string name="text_tick_pc_files_transfer">PC File Transfer</string>
+    <string name="text_tick_screen_sharing">Screen Sharing</string>
+
+    <string name="text_tick_language">Language</string>
+    <string name="no_content">No Content</string>
+
+    <string name="action_logout">Logout</string>
+
+    <string name="login_with_facebook">Login with Facebook</string>
+    <string name="login_with_google">Login with Google+</string>
+    <string name="login_with_twitter">Login with Twitter</string>
+    <string name="login_with_password">Login with Password</string>
+    <string name="login_anonymously">Login Anonymously</string>
 </resources>
