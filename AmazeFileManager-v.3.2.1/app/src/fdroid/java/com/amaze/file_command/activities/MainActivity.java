@@ -98,6 +98,7 @@ import com.amaze.file_command.fragments.AppsList;
 import com.amaze.file_command.fragments.CloudSheetFragment;
 import com.amaze.file_command.fragments.CloudSheetFragment.CloudConnectionCallbacks;
 import com.amaze.file_command.fragments.FTPServerFragment;
+import com.amaze.file_command.fragments.HomeFragment;
 import com.amaze.file_command.fragments.MainFragment;
 import com.amaze.file_command.fragments.ProcessViewer;
 import com.amaze.file_command.fragments.SearchWorkerFragment;
@@ -146,6 +147,9 @@ import com.cloudrail.si.services.GoogleDrive;
 import com.cloudrail.si.services.OneDrive;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.io.File;
@@ -197,7 +201,7 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
     public int operation = -1;
     public ArrayList<BaseFile> oparrayList;
     public ArrayList<ArrayList<BaseFile>> oparrayListList;
-
+    private AdView mAdView;
     // oppathe - the path at which certain operation needs to be performed
     // oppathe1 - the new path which user wants to create/modify
     // oppathList - the paths at which certain operation needs to be performed (pairs with oparrayList)
@@ -301,6 +305,7 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
             }
         });
         initialiseViews();
+        initAds();
         tabHandler = new TabHandler(this);
         utilsHandler = new UtilsHandler(this);
         cloudHandler = new CloudHandler(this);
@@ -823,14 +828,13 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
         android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         //title.setText(R.string.app_name);
         TabFragment tabFragment = new TabFragment();
-        FTPServerFragment ftpServerFragment = new FTPServerFragment();
         if (path != null && path.length() > 0) {
             Bundle b = new Bundle();
             b.putString("path", path);
             tabFragment.setArguments(b);
         }
-        transaction.replace(R.id.content_frame, ftpServerFragment);
-        //transaction.replace(R.id.content_frame, tabFragment);
+
+        transaction.replace(R.id.content_frame, tabFragment);
         // Commit the transaction
         selectedStorage = SELECT_0;
         transaction.addToBackStack("tabt" + 1);
@@ -1609,6 +1613,14 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
         colourednavigation = sharedPref.getBoolean("colorednavigation", false);
     }
 
+    protected void initAds(){
+        MobileAds.initialize(getApplicationContext(),
+                "ca-app-pub-3456168518371304/2700959193");
+        mAdView =   (AdView)  findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+    }
+
     void initialiseViews() {
         appBarLayout = getAppbar().getAppbarLayout();
 
@@ -1636,6 +1648,9 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                 return false;
             }
         });
+//        HomeFragment homeFragment = new HomeFragment();
+//        android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//        transaction.replace(R.id.content_frame, homeFragment);
         drawerProfilePic = (RoundedImageView) drawerHeaderLayout.findViewById(R.id.profile_pic);
         mGoogleName = (TextView) drawerHeaderLayout.findViewById(R.id.account_header_drawer_name);
         mGoogleId = (TextView) drawerHeaderLayout.findViewById(R.id.account_header_drawer_email);

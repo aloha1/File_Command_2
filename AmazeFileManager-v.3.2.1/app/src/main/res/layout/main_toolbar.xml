@@ -16,13 +16,20 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
     -->
-
-<android.support.v4.widget.DrawerLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relative_drawer_layout"
+    android:layout_width="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+<android.support.v4.widget.DrawerLayout
+
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_above="@+id/adView"
     android:layout_height="match_parent">
 
     <android.support.design.widget.CoordinatorLayout
@@ -31,32 +38,11 @@
         android:layout_height="match_parent"
         android:clipChildren="false">
 
-
-        <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_above="@+id/adView">
             <FrameLayout
                 android:id="@+id/content_frame"
                 android:layout_width="match_parent"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 android:layout_height="wrap_content" />
-    </ScrollView>
-
-
-        <com.google.android.gms.ads.AdView
-            xmlns:ads="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/adView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            ads:adSize="BANNER"
-            ads:adUnitId="@string/ad_unit_id_algo">
-        </com.google.android.gms.ads.AdView>
-
-
 
         <include layout="@layout/layout_appbar"/>
         <include layout="@layout/layout_search"/>
@@ -342,3 +328,15 @@
     -->
 
 </android.support.v4.widget.DrawerLayout>
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/ad_unit_id_algo">
+    </com.google.android.gms.ads.AdView>
+</RelativeLayout>
