@@ -304,7 +304,9 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                 }
             }
         });
+        //init framelayout?
         initialiseViews();
+
         initAds();
         tabHandler = new TabHandler(this);
         utilsHandler = new UtilsHandler(this);
@@ -500,8 +502,7 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                                 utils.openFile(new File(path), MainActivity.this);
                             }
                         } else {
-                            goToMain("");
-
+                            firstGoToMain();
                         }
                     }
                 } else {
@@ -798,14 +799,11 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                         if (path.contains(((EntryItem) item).getPath())) {
 
                             if (entryItemPath.length() > entryItemPathOld.length()) {
-
-
                                 // we don't need to match with the quick search drawer items
                                 // whether current entry item path is bigger than the older one found,
                                 // for eg. when we have /storage and /storage/Movies as entry items
                                 // we would choose to highlight /storage/Movies in drawer adapter
                                 k = i;
-
                                 entryItemPathOld = entryItemPath;
                             }
                         }
@@ -836,6 +834,32 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
 
         transaction.replace(R.id.content_frame, tabFragment);
         // Commit the transaction
+        selectedStorage = SELECT_0;
+        transaction.addToBackStack("tabt" + 1);
+        transaction.commitAllowingStateLoss();
+        appbar.setTitle(null);
+        floatingActionButton.setVisibility(View.VISIBLE);
+        floatingActionButton.showMenuButton(true);
+        if (openzip && zippath != null) {
+            if (zippath.endsWith(".zip") || zippath.endsWith(".apk")) openZip(zippath);
+            else {
+                openRar(zippath);
+            }
+            zippath = null;
+        }
+    }
+
+    public void firstGoToMain() {
+        android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        //title.setText(R.string.app_name);
+        HomeFragment homeFragment = new HomeFragment();
+        if (path != null && path.length() > 0) {
+            Bundle b = new Bundle();
+            b.putString("path", path);
+            homeFragment.setArguments(b);
+        }
+
+        transaction.replace(R.id.content_frame, homeFragment);
         selectedStorage = SELECT_0;
         transaction.addToBackStack("tabt" + 1);
         transaction.commitAllowingStateLoss();
