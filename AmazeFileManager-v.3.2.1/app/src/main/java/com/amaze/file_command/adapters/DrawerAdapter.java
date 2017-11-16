@@ -140,7 +140,6 @@ public class DrawerAdapter extends ArrayAdapter<Item> {
                     m.selectItem(position);
                 }
                 // TODO: Implement this method
-
             });
             view.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
@@ -184,7 +183,7 @@ public class DrawerAdapter extends ArrayAdapter<Item> {
 
             txtTitle.setText(((EntryItem) (values.get(position))).getTitle());
             imageView.setImageDrawable(getDrawable(position));
-            imageView.clearColorFilter();
+           // imageView.clearColorFilter();
 
             if (myChecked.get(position)) {
                 int accentColor = m.getColorPreference().getColor(ColorUsage.ACCENT);
@@ -248,6 +247,7 @@ public class DrawerAdapter extends ArrayAdapter<Item> {
                         }
                     });
         }
+
     }
 
     private Drawable getDrawable(int position) {
