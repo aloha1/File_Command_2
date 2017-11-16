@@ -1511,9 +1511,9 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
             if (quickAccessPref[5])
                 sectionItems.add(new EntryItem(getResources().getString(R.string.documents), "3",
                         ContextCompat.getDrawable(this, R.drawable.ic_doc_doc_am)));
-//            if (quickAccessPref[6])
-//                sectionItems.add(new EntryItem(getResources().getString(R.string.apks), "4",
-//                        ContextCompat.getDrawable(this, R.drawable.ic_doc_apk_grid)));
+            if (quickAccessPref[6])
+                sectionItems.add(new EntryItem(getResources().getString(R.string.apks), "4",
+                        ContextCompat.getDrawable(this, R.drawable.ic_doc_apk_grid)));
         } else {
             sectionItems.remove(sectionItems.size() - 1); //Deletes last divider
         }
@@ -1672,9 +1672,6 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                 return false;
             }
         });
-//        HomeFragment homeFragment = new HomeFragment();
-//        android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//        transaction.replace(R.id.content_frame, homeFragment);
         drawerProfilePic = (RoundedImageView) drawerHeaderLayout.findViewById(R.id.profile_pic);
         mGoogleName = (TextView) drawerHeaderLayout.findViewById(R.id.account_header_drawer_name);
         mGoogleId = (TextView) drawerHeaderLayout.findViewById(R.id.account_header_drawer_email);
@@ -1740,14 +1737,15 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
         View appButton = findViewById(R.id.appbutton);
         if (getAppTheme().equals(AppTheme.DARK)) {
             appButton.setBackgroundResource(R.drawable.safr_ripple_black);
-            ((ImageView) appButton.findViewById(R.id.appicon)).setImageResource(R.drawable.ic_doc_apk_white);
+            ((ImageView) appButton.findViewById(R.id.appicon)).setImageResource(R.drawable.home);
             ((TextView) appButton.findViewById(R.id.apptext)).setTextColor(Utils.getColor(this, android.R.color.white));
         }
         appButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 android.support.v4.app.FragmentTransaction transaction2 = getSupportFragmentManager().beginTransaction();
-                transaction2.replace(R.id.content_frame, new AppsList());
+                transaction2.replace(R.id.content_frame, new HomeFragment());
+//                transaction2.replace(R.id.content_frame, new AppsList());
                 appBarLayout.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
                 pending_fragmentTransaction = transaction2;
                 if (!isDrawerLocked) mDrawerLayout.closeDrawer(mDrawerLinear);

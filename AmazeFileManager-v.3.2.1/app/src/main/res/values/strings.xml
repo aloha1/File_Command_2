@@ -31,7 +31,8 @@
     <string name="efn">Enter File Name</string>
     <string name="storage">Storage</string>
     <string name="gallery">Gallery</string>
-    <string name="apps">App Manager</string>
+    <string name="apps">Home</string>
+    <!--<string name="apps">App Manager</string>-->
     <string name="ftp">FTP Server</string>
     <string name="bookmanag">Bookmarks Manager</string>
     <string name="setting">Settings</string>

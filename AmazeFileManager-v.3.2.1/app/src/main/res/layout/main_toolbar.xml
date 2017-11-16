@@ -249,7 +249,7 @@
                 android:layout_marginRight="32dp"
                 android:paddingBottom="12dp"
                 android:paddingTop="12dp"
-                android:src="@drawable/ic_doc_apk"
+                android:src="@drawable/home"
                 android:contentDescription="@string/icon" />
 
             <TextView
@@ -263,7 +263,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:singleLine="true"
                 android:ellipsize="end"
-                android:text="@string/apps"
+                android:text="@string/home"
                 android:clickable="false"
                 android:textColor="@android:color/black"
                 android:gravity="center_vertical" />
