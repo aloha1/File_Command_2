@@ -43,6 +43,7 @@
 
             </intent-filter>
         </activity>
+
         <activity
             android:label="@string/app_name"
             android:launchMode="singleInstance"
@@ -97,6 +98,10 @@
 
         </activity>
 
+        <!--activity other store-->
+        <activity android:name=".activities.AppStoreActivity"
+            android:theme="@style/appCompatLight"
+            android:launchMode="singleTop"/>
         <activity android:name=".activities.AddCategoryActivity"
             android:theme="@style/Theme.AppCompat"
             android:launchMode="singleTop"/>

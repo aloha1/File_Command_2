@@ -969,7 +969,7 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
             invalidatePasteButton(menu.findItem(R.id.paste));
             findViewById(R.id.buttonbarframe).setVisibility(View.VISIBLE);
         } else if (fragmentName.contains("AppsList") || fragmentName.contains("ProcessViewer") ||
-                fragmentName.contains(FTPServerFragment.class.getName())) {
+                fragmentName.contains(FTPServerFragment.class.getName()) ) {
             appBarLayout.setExpanded(true);
             menu.findItem(R.id.sethome).setVisible(false);
             if (indicator_layout != null) indicator_layout.setVisibility(View.GONE);
@@ -986,6 +986,23 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
             menu.findItem(R.id.hiddenitems).setVisible(false);
             menu.findItem(R.id.view).setVisible(false);
             menu.findItem(R.id.paste).setVisible(false);
+        } else if(fragmentName.contains(HomeFragment.class.getName())){
+            appBarLayout.setExpanded(true);
+            menu.findItem(R.id.sethome).setVisible(false);
+            if (indicator_layout != null) indicator_layout.setVisibility(View.GONE);
+            findViewById(R.id.buttonbarframe).setVisibility(View.GONE);
+            menu.findItem(R.id.search).setVisible(false);
+            menu.findItem(R.id.home).setVisible(false);
+            menu.findItem(R.id.history).setVisible(false);
+            menu.findItem(R.id.extract).setVisible(false);
+            menu.findItem(R.id.dsort).setVisible(false);
+            menu.findItem(R.id.sortby).setVisible(false);
+            menu.findItem(R.id.hiddenitems).setVisible(false);
+            menu.findItem(R.id.view).setVisible(false);
+            menu.findItem(R.id.paste).setVisible(false);
+            menu.findItem(R.id.exit).setVisible(false);
+            menu.findItem(R.id.sort).setVisible(false);
+            menu.findItem(R.id.recommend).setVisible(true);
         } else if (fragmentName.contains("ZipViewer")) {
             menu.findItem(R.id.sethome).setVisible(false);
             if (indicator_layout != null) indicator_layout.setVisibility(View.GONE);
@@ -1165,6 +1182,10 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
             case R.id.search:
                 getAppbar().getSearchView().revealSearchView();
                 break;
+            case R.id.recommend:
+                Intent intent = new Intent(mainActivity, AppStoreActivity.class);
+                startActivity(intent);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -1175,7 +1196,7 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
         MOVE_PATH=savedInstanceState.getStringArrayList("MOVE_PATH");
         oppathe = savedInstanceState.getString("oppathe");
         oppathe1 = savedInstanceState.getString("oppathe1");
-        oparrayList = savedInstanceState.getStringArrayList("oparrayList");
+        oparrayList = savedInstaniceState.getStringArrayList("oparrayList");
         opnameList=savedInstanceState.getStringArrayList("opnameList");
         operation = savedInstanceState.getInt("operation");
         selectedStorage = savedInstanceState.getInt("selectitem", 0);

@@ -65,7 +65,12 @@
         android:id="@+id/extract"
         android:title="@string/extract"
         android:visible="false"/>
-
+    <item
+        android:id="@+id/recommend"
+        android:title="@string/our_recommend_app"
+        android:icon="@drawable/bag_white"
+        app:showAsAction="ifRoom"
+        android:visible="false"/>
     <!-- orderInCategory=100 to have the element exit always at the end of the list -->
     <item
         android:id="@+id/exit"

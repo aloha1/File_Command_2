@@ -46,10 +46,6 @@ import java.io.File;
 import java.io.InputStream;
 import java.net.InetAddress;
 
-/**
- * Created by yashwanthreddyg on 10-06-2016.
- * Edited by Luca D'Amico (Luca91) on 25 Jul 2017 (Fixed FTP Server while using Eth connection)
- */
 public class FTPServerFragment extends Fragment {
 
     private TextView statusText, username, password, port, sharedPath;
@@ -141,7 +137,6 @@ public class FTPServerFragment extends Fragment {
 
     @Override
     public void onDestroy() {
-
         super.onDestroy();
     }
 

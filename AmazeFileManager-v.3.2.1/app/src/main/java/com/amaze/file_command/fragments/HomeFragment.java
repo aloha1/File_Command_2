@@ -130,9 +130,10 @@ public class HomeFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         setRetainInstance(true);
         mainActivity.getAppbar().setTitle(getResources().getString(R.string.home));
+        mainActivity.getAppbar().getToolbar().dismissPopupMenus();
         mainActivity.floatingActionButton.hideMenuButton(true);
         mainActivity.buttonBarFrame.setVisibility(View.GONE);
-        //mainActivity.supportInvalidateOptionsMenu();
+        mainActivity.supportInvalidateOptionsMenu();
 
         mainActivity.updateViews(new ColorDrawable(MainActivity.currentTab==1 ?
                 skinTwoColor : skin_color));
@@ -217,9 +218,16 @@ public class HomeFragment extends Fragment {
         if (algorithmList.size() != 0) {//Show Db list
             initRecyclerView(algorithmList, view);
         } else {
-            Toast.makeText(getActivity(), "No Content!", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getActivity(), "No Content!", Toast.LENGTH_SHORT).show();
+            Log.d(TAG,"No Content!");
         }
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        mainActivity.getMenuInflater().inflate(R.menu.empty, menu);
+    }
+
     private void addToFavorite(String topic) {
         CategoryRepo repo = new CategoryRepo(getActivity());
         Category category = repo.getColumnByTopic(topic);
@@ -270,9 +278,6 @@ public class HomeFragment extends Fragment {
     }
 
 
-    /**
-     * From question http://stackoverflow.com/questions/2652935/android-internal-phone-storage by Lazy Ninja
-     */
     public static class DeviceMemory {
 
         public static float getInternalStorageSpace() {
