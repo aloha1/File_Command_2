@@ -1,5 +1,6 @@
 package com.amaze.file_command.activities;
 
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 import com.amaze.file_command.R;
 import com.amaze.file_command.database.Category;
 import com.amaze.file_command.database.CategoryRepo;
+import com.amaze.file_command.ui.views.appbar.AppBar;
+import com.amaze.file_command.ui.views.appbar.SearchView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,10 +26,11 @@ import java.util.HashMap;
  * Created by Yunwen on 10/30/2017.
  */
 
-public class AddCategoryActivity extends AppCompatActivity implements View.OnClickListener{
+public class AddCategoryActivity extends BasicActivity implements View.OnClickListener{
 
     private MainActivity mainActivity;
     private String TAG = "AddCategoryActivity";
+    public SharedPreferences sharedPref;
     private Toolbar toolbar;
     private TextView toolbarTitle, textTitle, textContent;
     private ImageView imagePicture, imageMusic, imageVideos, imageDocuments, imageArchives, imageDownloads, imageSecuredFiles;
@@ -34,7 +38,7 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
     private CardView cardView;
     private RecyclerView mRecyclerView;
     private int _algorithm_id = 0;
-
+    private AppBar appbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,19 +91,6 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
-    }
-    public void checkAll() {
-        int _algorithm_id = 0;
-        CategoryRepo repo = new CategoryRepo(this);
-        Category category = new Category();
-        Log.d(TAG, "The id is: " + _algorithm_id);
-        category = repo.getColumnById(_algorithm_id);
-        ArrayList<HashMap<String, String>> algorithmList = repo.getAlgorithmList();
-        if (algorithmList.size() != 0) {//Show Db list
-            checkAllTick(algorithmList);
-        } else {
-            Toast.makeText(this, "No Content!", Toast.LENGTH_SHORT).show();
-        }
     }
 
     public void listAll() {

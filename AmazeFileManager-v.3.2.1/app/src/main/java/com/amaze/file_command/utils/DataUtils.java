@@ -49,13 +49,11 @@ public class DataUtils {
     public int containsServer(String path) {
 
         synchronized (servers) {
-
             if (servers == null) return -1;
             int i = 0;
             for (String[] x : servers) {
                 if (x[1].equals(path)) return i;
                 i++;
-
             }
         }
         return -1;
@@ -77,7 +75,6 @@ public class DataUtils {
     public synchronized int containsAccounts(OpenMode serviceType) {
         int i = 0;
         for (CloudStorage storage : accounts) {
-
             switch (serviceType) {
                 case BOX:
                     if (storage instanceof Box)
@@ -115,7 +112,6 @@ public class DataUtils {
     }
 
     public void registerOnDataChangedListener(DataChangeListener l) {
-
         dataChangeListener = l;
         clear();
     }
@@ -184,7 +180,6 @@ public class DataUtils {
 
     public void removeServer(int i) {
         synchronized (servers) {
-
             if (servers.size() > i)
                 servers.remove(i);
         }
@@ -192,21 +187,18 @@ public class DataUtils {
 
     public void addBook(String[] i) {
         synchronized (books) {
-
             books.add(i);
         }
     }
 
     public void addBook(final String[] i, boolean refreshdrawer) {
         synchronized (books) {
-
             books.add(i);
         }
         if (refreshdrawer && dataChangeListener != null) {
             AppConfig.runInBackground(new Runnable() {
                 @Override
                 public void run() {
-
                     dataChangeListener.onBookAdded(i, true);
                 }
             });

@@ -24,6 +24,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,6 +57,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class DrawerAdapter extends ArrayAdapter<Item> {
+    private String TAG = "DrawerAdapter";
     private final Context context;
     private UtilitiesProviderInterface utilsProvider;
     private final ArrayList<Item> values;
@@ -98,6 +100,7 @@ public class DrawerAdapter extends ArrayAdapter<Item> {
     @Override
     public View getView(final int position, View convertView, @NonNull ViewGroup parent) {
         if (values.get(position).isSection()) {
+            Log.d(TAG, "Section position: "+ position);
             ImageView view = new ImageView(context);
             if (utilsProvider.getAppTheme().equals(AppTheme.LIGHT))
                 view.setImageResource(R.color.divider);

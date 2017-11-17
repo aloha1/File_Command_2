@@ -4,4 +4,6 @@ public interface Item {
 	
 	boolean isSection();
 
+	boolean isFragment();
+
 }

@@ -6,4 +6,9 @@ public class SectionItem implements Item{
 	public boolean isSection() {
 		return true;
 	}
+
+	@Override
+	public boolean isFragment() {
+		return true;
+	}
 }

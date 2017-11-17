@@ -19,6 +19,11 @@ public class EntryItem implements Item {
 		return false;
 	}
 
+	@Override
+	public boolean isFragment() {
+		return false;
+	}
+
 	public Drawable getIcon() {
 		return icon1;
 	}
