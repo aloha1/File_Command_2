@@ -165,14 +165,14 @@ public class HomeFragment extends Fragment {
                 getActivity().startActivity(intent);
             }
         });
-       // CardView cardView = view.findViewById(R.id.card_normal);
-//        cardView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getActivity(), InterAd_Activity.class);
-//                getActivity().startActivity(intent);
-//            }
-//        });
+        CardView cardView = view.findViewById(R.id.card_normal);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), InterAd_Activity.class);
+                getActivity().startActivity(intent);
+            }
+        });
 
         //final TextView occupiedSpaceText = (TextView) view.findViewById(R.id.occupiedSpace);
         //final TextView freeSpaceText = (TextView) view.findViewById(R.id.freeSpace);

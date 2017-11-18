@@ -33,7 +33,7 @@
     <string name="gallery">Gallery</string>
     <string name="apps">Home</string>
     <!--<string name="apps">App Manager</string>-->
-    <string name="ftp">FTP Server</string>
+    <string name="ftp">FTP</string>
     <string name="bookmanag">Bookmarks Manager</string>
     <string name="setting">Settings</string>
     <string name="select">Select Item</string>

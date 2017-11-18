@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ResolveInfo;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -18,8 +19,6 @@ import com.amaze.file_command.R;
 
 import java.util.List;
 
-
-
 /**
  * Created by Yunwen on 10/30/2017.
  */
@@ -27,7 +26,6 @@ import java.util.List;
 public class AppStoreActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TextView toolbarTitle, textTitle, textContent;
-    private ImageView imageToolbar;
     private CardView cardView;
 
     @Override
@@ -39,6 +37,7 @@ public class AppStoreActivity extends AppCompatActivity {
 
     private void initView(){
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.accent_indigo)));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -60,7 +59,9 @@ public class AppStoreActivity extends AppCompatActivity {
 
     private void setToolbarHome(){
         toolbarTitle.setText(R.string.our_recommend_app);
+        toolbarTitle.setTextColor(getResources().getColor(R.color.text_disabled));
     }
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();

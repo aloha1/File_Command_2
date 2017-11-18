@@ -1,6 +1,7 @@
 package com.amaze.file_command.activities;
 
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -47,18 +48,16 @@ public class AddCategoryActivity extends BasicActivity implements View.OnClickLi
     }
 
     private void initView(){
-//        toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
-//        toolbarTitle = (TextView) findViewById(R.id.text_toolbar_title);
-//        setToolbarHome();
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.accent_indigo)));
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbarTitle = (TextView) findViewById(R.id.text_toolbar_title);
+        toolbarTitle.setText(R.string.title_add_category);
+        toolbarTitle.setTextColor(getResources().getColor(R.color.text_disabled));
         setImageView();
         listAll();
-    }
-
-    private void setToolbarHome(){
-        toolbarTitle.setText(R.string.title_add_category);
     }
 
     private void setImageView(){
@@ -176,7 +175,6 @@ public class AddCategoryActivity extends BasicActivity implements View.OnClickLi
         Category dbFavorite = repo.getColumnByTopic(topic);
         Log.d(TAG, "delete:"+topic);
         repo.delete(dbFavorite.dbId);
-        Toast.makeText(this, "删除", Toast.LENGTH_SHORT).show();
     }
 
     private void addToFavorite(String topic) {

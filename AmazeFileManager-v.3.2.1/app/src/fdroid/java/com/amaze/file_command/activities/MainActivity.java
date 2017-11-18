@@ -1541,8 +1541,8 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
 //        sectionItems.add(new EntryItem(getResources().getString(R.string.home), "100",
 //                ContextCompat.getDrawable(this, R.drawable.ic_home_white_24dp)));
         //add home fragment here
-        dataUtils.setList(sectionItems);
 
+        dataUtils.setList(sectionItems);
         adapter = new DrawerAdapter(this, this, sectionItems, this, sharedPref);
         mDrawerList.setAdapter(adapter);
     }

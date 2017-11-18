@@ -6,7 +6,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!--<include layout="@layout/card_appstore"/>-->
+    <include layout="@layout/card_appstore"/>
 
     <android.support.v7.widget.RecyclerView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -35,7 +35,7 @@
                 <ProgressBar
                     android:id="@+id/indicator"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/activity_small_margin"
+                    android:layout_height="@dimen/normal_margin"
                     android:layout_centerVertical="true"
                     android:layout_margin="@dimen/activity_margin_smaller"
                     style="@android:style/Widget.ProgressBar.Horizontal"
