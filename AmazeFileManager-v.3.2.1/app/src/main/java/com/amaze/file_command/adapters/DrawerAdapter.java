@@ -20,6 +20,7 @@
 package com.amaze.file_command.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -36,6 +37,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amaze.file_command.R;
+import com.amaze.file_command.activities.AddCategoryActivity;
+import com.amaze.file_command.activities.GoPremiumActivity;
 import com.amaze.file_command.activities.MainActivity;
 import com.amaze.file_command.activities.ThemedActivity;
 import com.amaze.file_command.database.CloudHandler;
@@ -126,21 +129,26 @@ public class DrawerAdapter extends ArrayAdapter<Item> {
             view.setOnClickListener(new View.OnClickListener() {
 
                 public void onClick(View p1) {
+
                     EntryItem item = (EntryItem) getItem(position);
+                    if(item.getPath().contains("premium")){
+                        Intent intent = new Intent(context, GoPremiumActivity.class);
+                        context.startActivity(intent);
+                    }else {
+                        if (dataUtils.containsBooks(new String[]{item.getTitle(), item.getPath()}) != -1) {
 
-                    if (dataUtils.containsBooks(new String[]{item.getTitle(), item.getPath()}) != -1) {
+                            checkForPath(item.getPath());
+                        }
 
-                        checkForPath(item.getPath());
+                        if (dataUtils.getAccounts().size() > 0 && (item.getPath().startsWith(CloudHandler.CLOUD_PREFIX_BOX) ||
+                                item.getPath().startsWith(CloudHandler.CLOUD_PREFIX_DROPBOX) ||
+                                item.getPath().startsWith(CloudHandler.CLOUD_PREFIX_ONE_DRIVE) ||
+                                item.getPath().startsWith(CloudHandler.CLOUD_PREFIX_GOOGLE_DRIVE))) {
+                            // we have cloud accounts, try see if token is expired or not
+                            CloudUtil.checkToken(item.getPath(), m);
+                        }
+                        m.selectItem(position);
                     }
-
-                    if (dataUtils.getAccounts().size() > 0 && (item.getPath().startsWith(CloudHandler.CLOUD_PREFIX_BOX) ||
-                                    item.getPath().startsWith(CloudHandler.CLOUD_PREFIX_DROPBOX) ||
-                                    item.getPath().startsWith(CloudHandler.CLOUD_PREFIX_ONE_DRIVE) ||
-                                    item.getPath().startsWith(CloudHandler.CLOUD_PREFIX_GOOGLE_DRIVE))) {
-                        // we have cloud accounts, try see if token is expired or not
-                        CloudUtil.checkToken(item.getPath(), m);
-                    }
-                    m.selectItem(position);
                 }
                 // TODO: Implement this method
             });

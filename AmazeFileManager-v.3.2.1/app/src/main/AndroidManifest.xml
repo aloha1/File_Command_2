@@ -106,7 +106,11 @@
         <activity android:name=".activities.AddCategoryActivity"
             android:theme="@style/appCompatLight"
             android:launchMode="singleTop"/>
-
+        <activity
+            android:name=".activities.GoPremiumActivity"
+            android:theme="@style/appCompatLight"
+            android:launchMode="singleTop" >
+        </activity>
         <activity
             android:name=".activities.InterAd_Activity"
             android:theme="@style/appCompatLight"

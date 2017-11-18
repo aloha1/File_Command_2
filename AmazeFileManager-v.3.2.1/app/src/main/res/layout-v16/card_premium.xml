@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/card_premium"
+        app:cardBackgroundColor="@color/accent_blue"
+        app:cardCornerRadius="@dimen/card_radius"
+        app:cardElevation="8dp">
+
+        <RelativeLayout
+            android:id="@+id/layout_premium"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/me_favorite_height">
+
+            <Button
+                android:id="@+id/btn_premium"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/searchview_height"
+                android:layout_centerInParent="true"
+                android:background="@color/primary_amber"
+                android:text="USD 2.49"/>
+            <ImageView
+                android:id="@+id/image_discount"
+                android:layout_width="@dimen/home_card_height"
+                android:layout_height="@dimen/home_card_height"
+                android:scaleType="fitXY"
+                android:layout_margin="@dimen/activity_margin_smaller"
+                android:layout_centerInParent="true"
+                />
+            <TextView
+                android:id="@+id/text_premium_title"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/button_margin"
+                android:textSize="@dimen/text_subtitle_size"
+                android:paddingLeft="@dimen/normal_margin"
+                android:layout_marginTop="@dimen/activity_margin_smaller"
+                android:layout_alignParentTop="true"
+                android:text="@string/app_name"
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/text_premium_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/text_tick_go_premium"
+                android:textColor="@color/white_translucent"
+                android:layout_marginTop="@dimen/margin_left_small"
+                android:layout_below="@+id/text_premium_title"/>
+
+            <TextView
+                android:id="@+id/text_premium_discount"
+                android:layout_width="@dimen/button_register_width"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:text="Get File Commander  Premium for 50% off！"
+                android:textColor="@color/white_translucent"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/btn_premium"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

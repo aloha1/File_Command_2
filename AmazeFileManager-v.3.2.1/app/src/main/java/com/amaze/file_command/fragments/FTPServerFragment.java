@@ -15,6 +15,7 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.AppCompatEditText;
+import android.support.v7.widget.CardView;
 import android.text.Html;
 import android.text.InputType;
 import android.text.Spanned;
@@ -34,6 +35,7 @@ import android.widget.Toast;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.amaze.file_command.R;
+import com.amaze.file_command.activities.InterAd_Activity;
 import com.amaze.file_command.activities.MainActivity;
 import com.amaze.file_command.exceptions.CryptException;
 import com.amaze.file_command.services.ftpservice.FTPService;
@@ -88,7 +90,14 @@ public class FTPServerFragment extends Fragment {
 
         updateSpans();
         updateStatus();
-
+        CardView cardView = rootView.findViewById(R.id.card_normal);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), InterAd_Activity.class);
+                getActivity().startActivity(intent);
+            }
+        });
         //light theme
         if (mainActivity.getAppTheme().equals(AppTheme.LIGHT)) {
             startDividerView.setBackgroundColor(Utils.getColor(getContext(), R.color.divider));

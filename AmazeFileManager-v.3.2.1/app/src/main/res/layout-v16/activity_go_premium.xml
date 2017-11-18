@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <include layout ="@layout/card_premium"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout android:id="@+id/layout_remove_ads"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/image_remove_ads"
+                    android:layout_width="@dimen/digit_big_height"
+                    android:layout_height="@dimen/digit_big_height"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:src="@drawable/no_ads"/>
+                <TextView
+                    android:id="@+id/title_remove_ads"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:layout_toRightOf="@+id/image_remove_ads"
+                    android:text="@string/remove_ads"/>
+                <TextView
+                    android:id="@+id/text_remove_ads"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:layout_toRightOf="@+id/image_remove_ads"
+                    android:layout_below="@+id/title_remove_ads"
+                    android:text="English"/>
+            </RelativeLayout>
+
+            <RelativeLayout android:id="@+id/layout_recycle_bin"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/image_recycle_bin"
+                    android:layout_width="@dimen/digit_big_height"
+                    android:layout_height="@dimen/digit_big_height"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:src="@drawable/recycle_bin"/>
+                <TextView
+                    android:id="@+id/title_recycle_bin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:layout_toRightOf="@+id/image_recycle_bin"
+                    android:text="@string/text_tick_recycle_bin"/>
+                <TextView
+                    android:id="@+id/text_recycle_bin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:layout_toRightOf="@+id/image_recycle_bin"
+                    android:layout_below="@+id/title_recycle_bin"
+                    android:text="English"/>
+            </RelativeLayout>
+
+            <RelativeLayout android:id="@+id/layout_favorite"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/image_favorite"
+                    android:layout_width="@dimen/digit_big_height"
+                    android:layout_height="@dimen/digit_big_height"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:src="@drawable/favorites"/>
+                <TextView
+                    android:id="@+id/title_favorite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:layout_toRightOf="@+id/image_favorite"
+                    android:text="@string/text_tick_favorites"/>
+                <TextView
+                    android:id="@+id/text_favorite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:layout_toRightOf="@+id/image_favorite"
+                    android:layout_below="@+id/title_favorite"
+                    android:text="English"/>
+            </RelativeLayout>
+
+            <RelativeLayout android:id="@+id/layout_show_hidden_files_and_folders"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/image_show_hidden_files_and_folders"
+                    android:layout_width="@dimen/digit_big_height"
+                    android:layout_height="@dimen/digit_big_height"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:src="@drawable/documents"/>
+                <TextView
+                    android:id="@+id/title_show_hidden_files_and_folders"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:layout_toRightOf="@+id/image_show_hidden_files_and_folders"
+                    android:text="Show hidden files and folders"/>
+                <TextView
+                    android:id="@+id/text_show_hidden_files_and_folders"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:layout_toRightOf="@+id/image_show_hidden_files_and_folders"
+                    android:layout_below="@+id/title_show_hidden_files_and_folders"
+                    android:text="English"/>
+            </RelativeLayout>
+
+            <RelativeLayout android:id="@+id/layout_storage_analyzer"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/image_storage_analyzer"
+                    android:layout_width="@dimen/digit_big_height"
+                    android:layout_height="@dimen/digit_big_height"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:src="@drawable/analyzer"/>
+                <TextView
+                    android:id="@+id/title_storage_analyzer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:layout_toRightOf="@+id/image_storage_analyzer"
+                    android:text="Analyzer"/>
+                <TextView
+                    android:id="@+id/text_storage_analyzer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_margin_smaller"
+                    android:layout_toRightOf="@+id/image_storage_analyzer"
+                    android:layout_below="@+id/title_storage_analyzer"
+                    android:text="English"/>
+            </RelativeLayout>
+
+            <!--<RelativeLayout android:id="@+id/layout_favorite"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+                <!--<ImageView-->
+                    <!--android:id="@+id/image_favorite"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="@dimen/activity_margin_smaller"-->
+                    <!--android:src="@drawable/favorites"/>-->
+                <!--<TextView-->
+                    <!--android:id="@+id/title_favorite"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="@dimen/activity_margin_smaller"-->
+                    <!--android:layout_toRightOf="@+id/image_favorite"-->
+                    <!--android:text="@string/text_tick_favorites"/>-->
+                <!--<TextView-->
+                    <!--android:id="@+id/text_favorite"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="@dimen/activity_margin_smaller"-->
+                    <!--android:layout_toRightOf="@+id/image_favorite"-->
+                    <!--android:layout_below="@+id/title_favorite"-->
+                    <!--android:text="English"/>-->
+            <!--</RelativeLayout>-->
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

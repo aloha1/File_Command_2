@@ -1409,6 +1409,12 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
         ArrayList<Item> sectionItems = new ArrayList<>();//initialize items
         ArrayList<String> storageDirectories = getStorageDirectories();
 
+        sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_go_premium), "premium",
+                ContextCompat.getDrawable(this, R.drawable.premium)));
+//        sectionItems.add(new EntryItem(getResources().getString(R.string.home), "home",
+//                ContextCompat.getDrawable(this, R.drawable.home)));
+        //add top fragments
+        sectionItems.add(new SectionItem());
         storage_count = 0;
         for (String file : storageDirectories) {
             File f = new File(file);
@@ -1416,6 +1422,7 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
             Drawable icon1 = ContextCompat.getDrawable(this, R.drawable.ic_sd_storage_white_56dp);
             if ("/storage/emulated/legacy".equals(file) || "/storage/emulated/0".equals(file)) {
                 name = getResources().getString(R.string.storage);
+                sectionItems.add(new EntryItem(name, file, icon1));
             } else if ("/storage/sdcard1".equals(file)) {
                 name = getResources().getString(R.string.extstorage);
             } else if ("/".equals(file)) {
@@ -1424,13 +1431,16 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
             } else if (file.contains(OTGUtil.PREFIX_OTG)) {
                 name = "OTG";
                 icon1 = ContextCompat.getDrawable(this, R.drawable.ic_usb_white_48dp);
-            } else name = f.getName();
-            if (!f.isDirectory() || f.canExecute()) {
-                storage_count++;
-                sectionItems.add(new EntryItem(name, file, icon1));
             }
+//            else name = f.getName();
+//            if (!f.isDirectory() || f.canExecute()) {
+//                storage_count++;
+//                sectionItems.add(new EntryItem(name, file, icon1));
+//            }
         }
         dataUtils.setStorages(storageDirectories);
+//        sectionItems.add(new EntryItem(getResources().getString(R.string.ftp), "ftp",
+//                ContextCompat.getDrawable(this, R.drawable.ftp)));
         sectionItems.add(new SectionItem());
 
         if (dataUtils.getServers().size() > 0) {
@@ -1496,52 +1506,60 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                 sectionItems.add(new SectionItem());
         }
 
-        if (sharedPref.getBoolean(PREFERENCE_SHOW_SIDEBAR_FOLDERS, true)) {
-            if (dataUtils.getBooks().size() > 0) {
-
-                Collections.sort(dataUtils.getBooks(), new BookSorter());
-
-                synchronized (dataUtils.getBooks()) {
-                    for (String[] file : dataUtils.getBooks()) {
-                        sectionItems.add(new EntryItem(file[0], file[1],
-                                ContextCompat.getDrawable(this, R.drawable.folder_fab)));
-                    }
-                }
-                sectionItems.add(new SectionItem());
-            }
-        }
+//        if (sharedPref.getBoolean(PREFERENCE_SHOW_SIDEBAR_FOLDERS, true)) {
+//            if (dataUtils.getBooks().size() > 0) {
+//
+//                Collections.sort(dataUtils.getBooks(), new BookSorter());
+//
+//                synchronized (dataUtils.getBooks()) {
+//                    for (String[] file : dataUtils.getBooks()) {
+//                        sectionItems.add(new EntryItem(file[0], file[1],
+//                                ContextCompat.getDrawable(this, R.drawable.folder_fab)));
+//                    }
+//                }
+//                sectionItems.add(new SectionItem());
+//            }
+//        }
         Boolean[] quickAccessPref = TinyDB.getBooleanArray(sharedPref, QuickAccessPref.KEY,
                 QuickAccessPref.DEFAULT);
 
         if (sharedPref.getBoolean(PREFERENCE_SHOW_SIDEBAR_QUICKACCESSES, true)) {
             if (quickAccessPref[0])
-                sectionItems.add(new EntryItem(getResources().getString(R.string.quick), "5",
-                        ContextCompat.getDrawable(this, R.drawable.ic_star_white_18dp)));
+//                sectionItems.add(new EntryItem(getResources().getString(R.string.quick), "5",
+//                        ContextCompat.getDrawable(this, R.drawable.ic_star_white_18dp)));
+                sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_picture), "0",
+                    ContextCompat.getDrawable(this, R.drawable.picture)));
             if (quickAccessPref[1])
-                sectionItems.add(new EntryItem(getResources().getString(R.string.recent), "6",
-                        ContextCompat.getDrawable(this, R.drawable.ic_history_white_48dp)));
+//                sectionItems.add(new EntryItem(getResources().getString(R.string.recent), "6",
+//                        ContextCompat.getDrawable(this, R.drawable.ic_history_white_48dp)));
+                sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_music), "2",
+                    ContextCompat.getDrawable(this, R.drawable.music)));
             if (quickAccessPref[2])
-                sectionItems.add(new EntryItem(getResources().getString(R.string.images), "0",
-                        ContextCompat.getDrawable(this, R.drawable.ic_doc_image)));
+//                sectionItems.add(new EntryItem(getResources().getString(R.string.images), "0",
+//                        ContextCompat.getDrawable(this, R.drawable.ic_doc_image)));
+                sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_videos), "1",
+                    ContextCompat.getDrawable(this, R.drawable.videos)));
             if (quickAccessPref[3])
-                sectionItems.add(new EntryItem(getResources().getString(R.string.videos), "1",
-                        ContextCompat.getDrawable(this, R.drawable.ic_doc_video_am)));
-            if (quickAccessPref[4])
-                sectionItems.add(new EntryItem(getResources().getString(R.string.audio), "2",
-                        ContextCompat.getDrawable(this, R.drawable.ic_doc_audio_am)));
-            if (quickAccessPref[5])
-                sectionItems.add(new EntryItem(getResources().getString(R.string.documents), "3",
-                        ContextCompat.getDrawable(this, R.drawable.ic_doc_doc_am)));
-            if (quickAccessPref[6])
-                sectionItems.add(new EntryItem(getResources().getString(R.string.apks), "4",
-                        ContextCompat.getDrawable(this, R.drawable.ic_doc_apk_grid)));
+//                sectionItems.add(new EntryItem(getResources().getString(R.string.videos), "1",
+//                        ContextCompat.getDrawable(this, R.drawable.ic_doc_video_am)));
+                sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_documents), "3",
+                        ContextCompat.getDrawable(this, R.drawable.documents)));
+//            if (quickAccessPref[4])
+//                sectionItems.add(new EntryItem(getResources().getString(R.string.audio), "2",
+//                        ContextCompat.getDrawable(this, R.drawable.ic_doc_audio_am)));
+
+//            if (quickAccessPref[5])
+//                sectionItems.add(new EntryItem(getResources().getString(R.string.documents), "3",
+//                        ContextCompat.getDrawable(this, R.drawable.ic_doc_doc_am)));
+//            if (quickAccessPref[6])
+//                sectionItems.add(new EntryItem(getResources().getString(R.string.apks), "4",
+//                        ContextCompat.getDrawable(this, R.drawable.ic_doc_apk_grid)));
         } else {
             sectionItems.remove(sectionItems.size() - 1); //Deletes last divider
         }
 //        sectionItems.add(new EntryItem(getResources().getString(R.string.home), "100",
 //                ContextCompat.getDrawable(this, R.drawable.ic_home_white_24dp)));
         //add home fragment here
-
         dataUtils.setList(sectionItems);
         adapter = new DrawerAdapter(this, this, sectionItems, this, sharedPref);
         mDrawerList.setAdapter(adapter);
