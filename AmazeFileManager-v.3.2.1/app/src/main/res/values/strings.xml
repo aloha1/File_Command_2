@@ -29,7 +29,7 @@
     <string name="icon">icon</string>
     <string name="ad_unit_id_algo">ca-app-pub-3456168518371304/2700959193</string>
     <string name="efn">Enter File Name</string>
-    <string name="storage">Storage</string>
+    <string name="storage">Internal shared storage</string>
     <string name="gallery">Gallery</string>
     <string name="apps">Home</string>
     <!--<string name="apps">App Manager</string>-->

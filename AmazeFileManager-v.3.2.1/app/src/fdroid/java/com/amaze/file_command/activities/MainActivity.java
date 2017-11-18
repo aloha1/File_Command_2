@@ -115,6 +115,7 @@ import com.amaze.file_command.ui.dialogs.RenameBookmark.BookmarkCallback;
 import com.amaze.file_command.ui.dialogs.SmbConnectDialog;
 import com.amaze.file_command.ui.dialogs.SmbConnectDialog.SmbConnectionListener;
 import com.amaze.file_command.ui.drawer.EntryItem;
+import com.amaze.file_command.ui.drawer.FragmentItem;
 import com.amaze.file_command.ui.drawer.Item;
 import com.amaze.file_command.ui.drawer.SectionItem;
 import com.amaze.file_command.ui.views.RoundedImageView;
@@ -1408,38 +1409,6 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
         ArrayList<Item> sectionItems = new ArrayList<>();//initialize items
         ArrayList<String> storageDirectories = getStorageDirectories();
 
-        Boolean[] quickAccessPref = TinyDB.getBooleanArray(sharedPref, QuickAccessPref.KEY,
-                QuickAccessPref.DEFAULT);
-
-        if (sharedPref.getBoolean(PREFERENCE_SHOW_SIDEBAR_QUICKACCESSES, true)) {
-            if (quickAccessPref[0])
-                sectionItems.add(new EntryItem(getResources().getString(R.string.quick), "5",
-                        ContextCompat.getDrawable(this, R.drawable.ic_star_white_18dp)));
-            if (quickAccessPref[1])
-                sectionItems.add(new EntryItem(getResources().getString(R.string.recent), "6",
-                        ContextCompat.getDrawable(this, R.drawable.ic_history_white_48dp)));
-            if (quickAccessPref[2])
-                sectionItems.add(new EntryItem(getResources().getString(R.string.images), "0",
-                        ContextCompat.getDrawable(this, R.drawable.ic_doc_image)));
-            if (quickAccessPref[3])
-                sectionItems.add(new EntryItem(getResources().getString(R.string.videos), "1",
-                        ContextCompat.getDrawable(this, R.drawable.ic_doc_video_am)));
-            if (quickAccessPref[4])
-                sectionItems.add(new EntryItem(getResources().getString(R.string.audio), "2",
-                        ContextCompat.getDrawable(this, R.drawable.ic_doc_audio_am)));
-            if (quickAccessPref[5])
-                sectionItems.add(new EntryItem(getResources().getString(R.string.documents), "3",
-                        ContextCompat.getDrawable(this, R.drawable.ic_doc_doc_am)));
-            if (quickAccessPref[6])
-                sectionItems.add(new EntryItem(getResources().getString(R.string.apks), "4",
-                        ContextCompat.getDrawable(this, R.drawable.ic_doc_apk_grid)));
-        } else {
-            sectionItems.remove(sectionItems.size() - 1); //Deletes last divider
-        }
-
-        dataUtils.setList(sectionItems);
-
-
         storage_count = 0;
         for (String file : storageDirectories) {
             File f = new File(file);
@@ -1541,8 +1510,38 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                 sectionItems.add(new SectionItem());
             }
         }
+        Boolean[] quickAccessPref = TinyDB.getBooleanArray(sharedPref, QuickAccessPref.KEY,
+                QuickAccessPref.DEFAULT);
 
-
+        if (sharedPref.getBoolean(PREFERENCE_SHOW_SIDEBAR_QUICKACCESSES, true)) {
+            if (quickAccessPref[0])
+                sectionItems.add(new EntryItem(getResources().getString(R.string.quick), "5",
+                        ContextCompat.getDrawable(this, R.drawable.ic_star_white_18dp)));
+            if (quickAccessPref[1])
+                sectionItems.add(new EntryItem(getResources().getString(R.string.recent), "6",
+                        ContextCompat.getDrawable(this, R.drawable.ic_history_white_48dp)));
+            if (quickAccessPref[2])
+                sectionItems.add(new EntryItem(getResources().getString(R.string.images), "0",
+                        ContextCompat.getDrawable(this, R.drawable.ic_doc_image)));
+            if (quickAccessPref[3])
+                sectionItems.add(new EntryItem(getResources().getString(R.string.videos), "1",
+                        ContextCompat.getDrawable(this, R.drawable.ic_doc_video_am)));
+            if (quickAccessPref[4])
+                sectionItems.add(new EntryItem(getResources().getString(R.string.audio), "2",
+                        ContextCompat.getDrawable(this, R.drawable.ic_doc_audio_am)));
+            if (quickAccessPref[5])
+                sectionItems.add(new EntryItem(getResources().getString(R.string.documents), "3",
+                        ContextCompat.getDrawable(this, R.drawable.ic_doc_doc_am)));
+            if (quickAccessPref[6])
+                sectionItems.add(new EntryItem(getResources().getString(R.string.apks), "4",
+                        ContextCompat.getDrawable(this, R.drawable.ic_doc_apk_grid)));
+        } else {
+            sectionItems.remove(sectionItems.size() - 1); //Deletes last divider
+        }
+//        sectionItems.add(new EntryItem(getResources().getString(R.string.home), "100",
+//                ContextCompat.getDrawable(this, R.drawable.ic_home_white_24dp)));
+        //add home fragment here
+        dataUtils.setList(sectionItems);
 
         adapter = new DrawerAdapter(this, this, sectionItems, this, sharedPref);
         mDrawerList.setAdapter(adapter);
@@ -1769,7 +1768,6 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
             public void onClick(View v) {
                 android.support.v4.app.FragmentTransaction transaction2 = getSupportFragmentManager().beginTransaction();
                 transaction2.replace(R.id.content_frame, new HomeFragment());
-//                transaction2.replace(R.id.content_frame, new AppsList());
                 appBarLayout.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
                 pending_fragmentTransaction = transaction2;
                 if (!isDrawerLocked) mDrawerLayout.closeDrawer(mDrawerLinear);

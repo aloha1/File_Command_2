@@ -1,10 +1,10 @@
 package com.amaze.file_command.ui.drawer;
 
-public class SectionItem implements Item{
+public class FragmentItem implements Item{
 
 	@Override
 	public boolean isSection() {
-		return true;
+		return false;
 	}
 
 	@Override
