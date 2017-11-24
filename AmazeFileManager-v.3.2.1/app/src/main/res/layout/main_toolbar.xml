@@ -180,10 +180,10 @@
             android:clickable="true"
             android:paddingTop="0dp"
             android:paddingBottom="8dp"
-
             android:background="@android:color/transparent"
             android:layout_above="@+id/ftpbutton"
-            android:id="@+id/divider1"></ImageView>
+            android:id="@+id/divider1">
+        </ImageView>
         <RelativeLayout
             android:id="@+id/ftpbutton"
             android:layout_width="fill_parent"
@@ -194,7 +194,8 @@
             android:paddingStart="16dp"
             android:layout_above="@+id/appbutton"
             android:background="@drawable/safr_ripple_white"
-            android:clickable="true">
+            android:clickable="true"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/ftpicon"
@@ -236,7 +237,8 @@
             android:paddingStart="16dp"
             android:layout_above="@+id/settingsbutton"
             android:background="@drawable/safr_ripple_white"
-            android:clickable="true">
+            android:clickable="true"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/appicon"

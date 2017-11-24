@@ -334,11 +334,13 @@ public class RootHelper {
                 mode = OpenMode.FILE;
                 files = new ArrayList<>();
             }
-        } else if (Futils.canListFiles(new File(path))) {
-            // we don't have root, so we're taking a chance to load files using basic java filesystem
-            files = getFilesList(path, showHidden);
-            mode = OpenMode.FILE;
-        } else {
+        }
+//        else if (Futils.canListFiles(new File(path))) {
+//            // we don't have root, so we're taking a chance to load files using basic java filesystem
+//            files = getFilesList(path, showHidden);
+//            mode = OpenMode.FILE;
+//        }
+        else {
             // couldn't load files using native java filesystem callbacks
             // maybe the access is not allowed due to android system restrictions, we'll see later
             mode = OpenMode.FILE;

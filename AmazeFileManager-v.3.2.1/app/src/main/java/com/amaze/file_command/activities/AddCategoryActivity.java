@@ -102,7 +102,7 @@ public class AddCategoryActivity extends BasicActivity implements View.OnClickLi
         if (algorithmList.size() != 0) {//Show Db list
             initRecyclerView(algorithmList);
         } else {
-            Toast.makeText(this, "No Content!", Toast.LENGTH_SHORT).show();
+            Log.d(TAG, "No content");
         }
     }
 

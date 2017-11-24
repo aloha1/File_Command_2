@@ -1354,10 +1354,11 @@ public class MainFragment extends android.support.v4.app.Fragment {
                             || CURRENT_PATH.equals(CloudHandler.CLOUD_PREFIX_GOOGLE_DRIVE + "/")
                             || CURRENT_PATH.equals(CloudHandler.CLOUD_PREFIX_ONE_DRIVE + "/")
                             )
-                        getMainActivity().exit();
+                        //getMainActivity().exit();
+                        getMainActivity().firstGoToMain();
                     else if (utils.canGoBack(getContext(), currentFile)) {
                         loadlist(currentFile.getParent(getContext()), true, openMode);
-                    } else getMainActivity().exit();
+                    } else getMainActivity().firstGoToMain();//getMainActivity().exit();
                 }
             } else {
                 // case when we had pressed on an item from search results and wanna go back
@@ -1439,10 +1440,10 @@ public class MainFragment extends android.support.v4.app.Fragment {
                         || CURRENT_PATH.equals(CloudHandler.CLOUD_PREFIX_DROPBOX + "/")
                         || CURRENT_PATH.equals(CloudHandler.CLOUD_PREFIX_GOOGLE_DRIVE + "/")
                         || CURRENT_PATH.equals(CloudHandler.CLOUD_PREFIX_ONE_DRIVE + "/")) {
-                    getMainActivity().exit();
+                    getMainActivity().firstGoToMain();//getMainActivity().exit();
                 } else if (utils.canGoBack(getContext(), currentFile)) {
                     loadlist(currentFile.getParent(getContext()), true, openMode);
-                } else getMainActivity().exit();
+                } else getMainActivity().firstGoToMain();//getMainActivity().exit();
             }
         } else {
             loadlist(currentFile.getPath(), true, openMode);

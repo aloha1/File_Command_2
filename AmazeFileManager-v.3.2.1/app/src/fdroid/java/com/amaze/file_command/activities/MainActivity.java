@@ -752,11 +752,11 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                     utils.openFile(new File(path), this);
                 }
             } else {
-                goToMain("");
+                firstGoToMain();
             }
         }else if (fragment instanceof HomeFragment) {
             exit();
-        } else {goToMain("");}
+        } else {firstGoToMain();}
     }
 
     public void invalidatePasteButton(MenuItem paste) {
@@ -1408,12 +1408,12 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
     public void refreshDrawer() {
         ArrayList<Item> sectionItems = new ArrayList<>();//initialize items
         ArrayList<String> storageDirectories = getStorageDirectories();
-
+        //add top drawer fragments
         sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_go_premium), "premium",
                 ContextCompat.getDrawable(this, R.drawable.premium)));
-//        sectionItems.add(new EntryItem(getResources().getString(R.string.home), "home",
-//                ContextCompat.getDrawable(this, R.drawable.home)));
-        //add top fragments
+        sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_home), "home",
+                ContextCompat.getDrawable(this, R.drawable.home)));
+
         sectionItems.add(new SectionItem());
         storage_count = 0;
         for (String file : storageDirectories) {
@@ -1425,6 +1425,7 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                 sectionItems.add(new EntryItem(name, file, icon1));
             } else if ("/storage/sdcard1".equals(file)) {
                 name = getResources().getString(R.string.extstorage);
+                sectionItems.add(new EntryItem(name, file, icon1));
             } else if ("/".equals(file)) {
                 name = getResources().getString(R.string.rootdirectory);
                 icon1 = ContextCompat.getDrawable(this, R.drawable.ic_drawer_root_white);
@@ -1438,6 +1439,8 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
 //                sectionItems.add(new EntryItem(name, file, icon1));
 //            }
         }
+        sectionItems.add(new EntryItem(getResources().getString(R.string.ftp), "ftp",
+                ContextCompat.getDrawable(this, R.drawable.ftp)));
         dataUtils.setStorages(storageDirectories);
 //        sectionItems.add(new EntryItem(getResources().getString(R.string.ftp), "ftp",
 //                ContextCompat.getDrawable(this, R.drawable.ftp)));
@@ -1794,8 +1797,9 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                 adapter.toggleChecked(false);
             }
         });
-
+        appButton.setVisibility(View.GONE);
         View ftpButton = findViewById(R.id.ftpbutton);
+        ftpButton.setVisibility(View.GONE);
         if (getAppTheme().equals(AppTheme.DARK)) {
             ftpButton.setBackgroundResource(R.drawable.safr_ripple_black);
             ((ImageView) ftpButton.findViewById(R.id.ftpicon)).setImageResource(R.drawable.ic_ftp_dark);
@@ -1837,6 +1841,16 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
         }
     }
 
+    public void FTPFragment(){
+        android.support.v4.app.FragmentTransaction transaction2 = getSupportFragmentManager().beginTransaction();
+        transaction2.replace(R.id.content_frame, new FTPServerFragment());
+        appBarLayout.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
+        pending_fragmentTransaction = transaction2;
+        if (!isDrawerLocked) mDrawerLayout.closeDrawer(mDrawerLinear);
+        else onDrawerClosed();
+        selectedStorage = SELECT_MINUS_2;
+        adapter.toggleChecked(false);
+    }
     /**
      * Call this method when you need to update the MainActivity view components' colors based on
      * update in the {@link MainActivity#currentTab}

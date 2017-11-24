@@ -134,6 +134,12 @@ public class DrawerAdapter extends ArrayAdapter<Item> {
                     if(item.getPath().contains("premium")){
                         Intent intent = new Intent(context, GoPremiumActivity.class);
                         context.startActivity(intent);
+                    }else if(item.getPath().contains("home")){
+                        ((MainActivity)context).onBackPressed();
+                        ((MainActivity)context).firstGoToMain();
+                    }else if(item.getPath().contains("ftp")){
+                        ((MainActivity)context).onBackPressed();
+                        ((MainActivity)context).FTPFragment();
                     }else {
                         if (dataUtils.containsBooks(new String[]{item.getTitle(), item.getPath()}) != -1) {
 
