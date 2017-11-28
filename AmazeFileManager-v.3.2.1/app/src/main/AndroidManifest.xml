@@ -86,6 +86,8 @@
             </intent-filter>
 
         </activity>
+
+
         <activity
             android:uiOptions="splitActionBarWhenNarrow"
             android:label="@string/setting"

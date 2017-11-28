@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths>
-    <external-path path="Android/data/com.amaze.filemanager/" name="package_root" />
-    <external-path path="." name="storage_root" />
+    <!--<external-path path="Android/data/com.amaze.filemanager/" name="package_root" />-->
+    <external-path name="external_files" path="."/>
+    <!--<external-path path="." name="storage_root" />-->
 </paths>
