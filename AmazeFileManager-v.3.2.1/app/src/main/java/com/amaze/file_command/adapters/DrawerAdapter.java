@@ -45,6 +45,10 @@ import com.amaze.file_command.database.CloudHandler;
 import com.amaze.file_command.filesystem.HFile;
 import com.amaze.file_command.filesystem.Operations;
 import com.amaze.file_command.filesystem.RootHelper;
+import com.amaze.file_command.fragments.FTPServerFragment;
+import com.amaze.file_command.fragments.HomeFragment;
+import com.amaze.file_command.fragments.MusicFragment;
+import com.amaze.file_command.fragments.PhotoFragment;
 import com.amaze.file_command.ui.dialogs.GeneralDialogCreation;
 import com.amaze.file_command.ui.drawer.EntryItem;
 import com.amaze.file_command.ui.drawer.Item;
@@ -136,11 +140,17 @@ public class DrawerAdapter extends ArrayAdapter<Item> {
                         context.startActivity(intent);
                     }else if(item.getPath().contains("home")){
                         ((MainActivity)context).onBackPressed();
-                        ((MainActivity)context).firstGoToMain();
+                        ((MainActivity)context).addFragment(new HomeFragment());
                     }else if(item.getPath().contains("ftp")){
                         ((MainActivity)context).onBackPressed();
-                        ((MainActivity)context).FTPFragment();
-                    }else {
+                        ((MainActivity)context).addFragment(new FTPServerFragment());
+                    }else if(item.getPath().contains("picture")){
+                        ((MainActivity)context).onBackPressed();
+                        ((MainActivity)context).addFragment(new PhotoFragment());
+                    }else if(item.getPath().contains("music")){
+                        ((MainActivity)context).onBackPressed();
+                        ((MainActivity)context).addFragment(new MusicFragment());
+                    } else {
                         if (dataUtils.containsBooks(new String[]{item.getTitle(), item.getPath()}) != -1) {
 
                             checkForPath(item.getPath());

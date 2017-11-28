@@ -22,6 +22,7 @@ package com.amaze.file_command.activities;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.ContentUris;
@@ -45,6 +46,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.provider.DocumentsContract;
 import android.service.quicksettings.TileService;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
@@ -58,6 +60,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.CursorLoader;
+import android.support.v4.content.FileProvider;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.DrawerLayout;
 import android.text.TextUtils;
@@ -70,6 +73,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.DecelerateInterpolator;
+import android.webkit.MimeTypeMap;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -154,6 +158,7 @@ import com.google.android.gms.ads.MobileAds;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.io.File;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -162,6 +167,7 @@ import java.util.regex.Pattern;
 import eu.chainfire.libsuperuser.Shell;
 
 import static android.os.Build.VERSION.SDK_INT;
+import static com.amaze.file_command.activities.helper.Helper.fileExt;
 import static com.amaze.file_command.fragments.preference_fragments.Preffrag.PREFERENCE_SHOW_SIDEBAR_FOLDERS;
 import static com.amaze.file_command.fragments.preference_fragments.Preffrag.PREFERENCE_SHOW_SIDEBAR_QUICKACCESSES;
 
@@ -1016,6 +1022,22 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
             menu.findItem(R.id.view).setVisible(false);
             menu.findItem(R.id.paste).setVisible(false);
             menu.findItem(R.id.extract).setVisible(true);
+        }else{
+            appBarLayout.setExpanded(true);
+            menu.findItem(R.id.sethome).setVisible(false);
+            if (indicator_layout != null) indicator_layout.setVisibility(View.GONE);
+            findViewById(R.id.buttonbarframe).setVisibility(View.GONE);
+            menu.findItem(R.id.search).setVisible(true);
+            menu.findItem(R.id.home).setVisible(false);
+            menu.findItem(R.id.history).setVisible(false);
+            menu.findItem(R.id.extract).setVisible(false);
+            menu.findItem(R.id.dsort).setVisible(true);
+            menu.findItem(R.id.sortby).setVisible(true);
+            menu.findItem(R.id.hiddenitems).setVisible(false);
+            menu.findItem(R.id.view).setVisible(true);
+            menu.findItem(R.id.paste).setVisible(false);
+            menu.findItem(R.id.exit).setVisible(false);
+            menu.findItem(R.id.sort).setVisible(false);
         }
         return super.onPrepareOptionsMenu(menu);
     }
@@ -1526,43 +1548,47 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
         Boolean[] quickAccessPref = TinyDB.getBooleanArray(sharedPref, QuickAccessPref.KEY,
                 QuickAccessPref.DEFAULT);
 
-        if (sharedPref.getBoolean(PREFERENCE_SHOW_SIDEBAR_QUICKACCESSES, true)) {
-            if (quickAccessPref[0])
-//                sectionItems.add(new EntryItem(getResources().getString(R.string.quick), "5",
-//                        ContextCompat.getDrawable(this, R.drawable.ic_star_white_18dp)));
-                sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_picture), "0",
-                    ContextCompat.getDrawable(this, R.drawable.picture)));
-            if (quickAccessPref[1])
-//                sectionItems.add(new EntryItem(getResources().getString(R.string.recent), "6",
-//                        ContextCompat.getDrawable(this, R.drawable.ic_history_white_48dp)));
-                sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_music), "2",
-                    ContextCompat.getDrawable(this, R.drawable.music)));
-            if (quickAccessPref[2])
-//                sectionItems.add(new EntryItem(getResources().getString(R.string.images), "0",
-//                        ContextCompat.getDrawable(this, R.drawable.ic_doc_image)));
-                sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_videos), "1",
-                    ContextCompat.getDrawable(this, R.drawable.videos)));
-            if (quickAccessPref[3])
-//                sectionItems.add(new EntryItem(getResources().getString(R.string.videos), "1",
-//                        ContextCompat.getDrawable(this, R.drawable.ic_doc_video_am)));
-                sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_documents), "3",
-                        ContextCompat.getDrawable(this, R.drawable.documents)));
-//            if (quickAccessPref[4])
-//                sectionItems.add(new EntryItem(getResources().getString(R.string.audio), "2",
-//                        ContextCompat.getDrawable(this, R.drawable.ic_doc_audio_am)));
-
-//            if (quickAccessPref[5])
-//                sectionItems.add(new EntryItem(getResources().getString(R.string.documents), "3",
-//                        ContextCompat.getDrawable(this, R.drawable.ic_doc_doc_am)));
-//            if (quickAccessPref[6])
-//                sectionItems.add(new EntryItem(getResources().getString(R.string.apks), "4",
-//                        ContextCompat.getDrawable(this, R.drawable.ic_doc_apk_grid)));
-        } else {
-            sectionItems.remove(sectionItems.size() - 1); //Deletes last divider
-        }
+//        if (sharedPref.getBoolean(PREFERENCE_SHOW_SIDEBAR_QUICKACCESSES, true)) {
+//            if (quickAccessPref[0])
+////                sectionItems.add(new EntryItem(getResources().getString(R.string.quick), "5",
+////                        ContextCompat.getDrawable(this, R.drawable.ic_star_white_18dp)));
+//                sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_picture), "0",
+//                    ContextCompat.getDrawable(this, R.drawable.picture)));
+//            if (quickAccessPref[1])
+////                sectionItems.add(new EntryItem(getResources().getString(R.string.recent), "6",
+////                        ContextCompat.getDrawable(this, R.drawable.ic_history_white_48dp)));
+//                sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_music), "2",
+//                    ContextCompat.getDrawable(this, R.drawable.music)));
+//            if (quickAccessPref[2])
+////                sectionItems.add(new EntryItem(getResources().getString(R.string.images), "0",
+////                        ContextCompat.getDrawable(this, R.drawable.ic_doc_image)));
+//                sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_videos), "1",
+//                    ContextCompat.getDrawable(this, R.drawable.videos)));
+//            if (quickAccessPref[3])
+////                sectionItems.add(new EntryItem(getResources().getString(R.string.videos), "1",
+////                        ContextCompat.getDrawable(this, R.drawable.ic_doc_video_am)));
+//                sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_documents), "3",
+//                        ContextCompat.getDrawable(this, R.drawable.documents)));
+////            if (quickAccessPref[4])
+////                sectionItems.add(new EntryItem(getResources().getString(R.string.audio), "2",
+////                        ContextCompat.getDrawable(this, R.drawable.ic_doc_audio_am)));
+//
+////            if (quickAccessPref[5])
+////                sectionItems.add(new EntryItem(getResources().getString(R.string.documents), "3",
+////                        ContextCompat.getDrawable(this, R.drawable.ic_doc_doc_am)));
+////            if (quickAccessPref[6])
+////                sectionItems.add(new EntryItem(getResources().getString(R.string.apks), "4",
+////                        ContextCompat.getDrawable(this, R.drawable.ic_doc_apk_grid)));
+//        } else {
+//            sectionItems.remove(sectionItems.size() - 1); //Deletes last divider
+//        }
 //        sectionItems.add(new EntryItem(getResources().getString(R.string.home), "100",
 //                ContextCompat.getDrawable(this, R.drawable.ic_home_white_24dp)));
         //add home fragment here
+        sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_picture), "picture",
+                ContextCompat.getDrawable(this, R.drawable.picture)));
+        sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_music), "music",
+                ContextCompat.getDrawable(this, R.drawable.music)));
         dataUtils.setList(sectionItems);
         adapter = new DrawerAdapter(this, this, sectionItems, this, sharedPref);
         mDrawerList.setAdapter(adapter);
@@ -1682,8 +1708,7 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
     }
 
     protected void initAds(){
-        MobileAds.initialize(getApplicationContext(),
-                "ca-app-pub-3456168518371304/2700959193");
+        MobileAds.initialize(getApplicationContext(), getResources().getString(R.string.ad_banner_id));
         mAdView =   (AdView)  findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -1849,6 +1874,17 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
         if (!isDrawerLocked) mDrawerLayout.closeDrawer(mDrawerLinear);
         else onDrawerClosed();
         selectedStorage = SELECT_MINUS_2;
+        adapter.toggleChecked(false);
+    }
+
+    public void addFragment(Fragment fragment){
+        android.support.v4.app.FragmentTransaction transaction2 = getSupportFragmentManager().beginTransaction();
+        transaction2.replace(R.id.content_frame, fragment);
+        appBarLayout.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
+        pending_fragmentTransaction = transaction2;
+        if (!isDrawerLocked) mDrawerLayout.closeDrawer(mDrawerLinear);
+        else onDrawerClosed();
+//        selectedStorage = SELECT_MINUS_2;
         adapter.toggleChecked(false);
     }
     /**
@@ -2409,6 +2445,22 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                 }
             default:
                 return null;
+        }
+    }
+
+    public void clickFile(File file){
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            String mimeType =  MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExt(file.getAbsolutePath()));
+            Uri apkURI = FileProvider.getUriForFile(
+                    MainActivity.this,
+                    getApplicationContext()
+                            .getPackageName() + ".provider", file);
+            intent.setDataAndType(apkURI, mimeType);
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            e.printStackTrace();
         }
     }
 

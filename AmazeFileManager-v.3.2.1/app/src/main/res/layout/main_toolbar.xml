@@ -159,8 +159,7 @@
         android:layout_width="@dimen/drawer_width"
         android:layout_height="match_parent"
         android:id="@+id/left_drawer"
-        android:layout_gravity="start|left"
-        >
+        android:layout_gravity="start|left">
 
         <ListView
             android:id="@+id/menu_drawer"
@@ -293,7 +292,7 @@
                 android:layout_marginRight="32dp"
                 android:paddingBottom="12dp"
                 android:paddingTop="12dp"
-                android:src="@drawable/ic_settings_grey600_48dp"
+                android:src="@drawable/settings"
                 android:contentDescription="@string/icon" />
 
             <TextView

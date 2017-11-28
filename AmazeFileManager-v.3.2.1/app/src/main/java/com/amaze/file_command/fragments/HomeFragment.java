@@ -218,7 +218,6 @@ public class HomeFragment extends Fragment {
         if (algorithmList.size() != 0) {//Show Db list
             initRecyclerView(algorithmList, view);
         } else {
-            //Toast.makeText(getActivity(), "No Content!", Toast.LENGTH_SHORT).show();
             Log.d(TAG,"No Content!");
         }
     }

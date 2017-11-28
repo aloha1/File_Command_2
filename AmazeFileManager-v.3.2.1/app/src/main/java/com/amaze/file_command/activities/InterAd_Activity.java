@@ -26,7 +26,7 @@ public class InterAd_Activity extends AppCompatActivity {
         mInterstitialAd = new InterstitialAd(this);
 
         // set the ad unit ID
-        mInterstitialAd.setAdUnitId( "ca-app-pub-3456168518371304/4640726822");
+        mInterstitialAd.setAdUnitId( getResources().getString(R.string.ad_interstitial_id));
 
         AdRequest adRequest = new AdRequest.Builder()
                 .build();
@@ -45,8 +45,6 @@ public class InterAd_Activity extends AppCompatActivity {
                 finish();
             }
         });
-
-
     }
 
     private void showInterstitial() {

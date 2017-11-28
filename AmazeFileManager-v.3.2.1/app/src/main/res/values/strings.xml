@@ -27,7 +27,10 @@
     <string name="drawer_close">Close navigation drawer</string>
     <string name="books">Bookmarks</string>
     <string name="icon">icon</string>
-    <string name="ad_unit_id_algo">ca-app-pub-3456168518371304/2700959193</string>
+    <string name="ad_banner_id">ca-app-pub-2775393489349666/3576425420</string>
+    <string name="ad_interstitial_id">ca-app-pub-2775393489349666/9838581449</string>
+    <string name="ad_reward_video_id">ca-app-pub-2775393489349666/6008692239</string>
+    <string name="ad_unit_id_algo">ca-app-pub-2775393489349666~6204079450</string>
     <string name="efn">Enter File Name</string>
     <string name="storage">Internal shared storage</string>
     <string name="gallery">Gallery</string>
