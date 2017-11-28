@@ -49,6 +49,7 @@ import com.amaze.file_command.fragments.FTPServerFragment;
 import com.amaze.file_command.fragments.HomeFragment;
 import com.amaze.file_command.fragments.MusicFragment;
 import com.amaze.file_command.fragments.PhotoFragment;
+import com.amaze.file_command.fragments.VideoFragment;
 import com.amaze.file_command.ui.dialogs.GeneralDialogCreation;
 import com.amaze.file_command.ui.drawer.EntryItem;
 import com.amaze.file_command.ui.drawer.Item;
@@ -150,7 +151,10 @@ public class DrawerAdapter extends ArrayAdapter<Item> {
                     }else if(item.getPath().contains("music")){
                         ((MainActivity)context).onBackPressed();
                         ((MainActivity)context).addFragment(new MusicFragment());
-                    } else {
+                    } else if(item.getPath().contains("video")){
+                        ((MainActivity)context).onBackPressed();
+                        ((MainActivity)context).addFragment(new VideoFragment());
+                    }else {
                         if (dataUtils.containsBooks(new String[]{item.getTitle(), item.getPath()}) != -1) {
 
                             checkForPath(item.getPath());

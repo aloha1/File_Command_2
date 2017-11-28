@@ -64,6 +64,7 @@ import android.support.v4.content.FileProvider;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.DrawerLayout;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -1589,6 +1590,8 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                 ContextCompat.getDrawable(this, R.drawable.picture)));
         sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_music), "music",
                 ContextCompat.getDrawable(this, R.drawable.music)));
+        sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_videos), "video",
+                ContextCompat.getDrawable(this, R.drawable.videos)));
         dataUtils.setList(sectionItems);
         adapter = new DrawerAdapter(this, this, sectionItems, this, sharedPref);
         mDrawerList.setAdapter(adapter);
@@ -2452,10 +2455,11 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW);
             String mimeType =  MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExt(file.getAbsolutePath()));
+            Log.d("CLickFIle","mimeType is: "+mimeType);
             Uri apkURI = FileProvider.getUriForFile(
-                    MainActivity.this,
-                    getApplicationContext()
-                            .getPackageName() + ".provider", file);
+                    this,
+                    "com.amaze.file_command.FILE_PROVIDER", file);
+            Log.d("CLickFIle","URI is: "+apkURI);
             intent.setDataAndType(apkURI, mimeType);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             startActivity(intent);
