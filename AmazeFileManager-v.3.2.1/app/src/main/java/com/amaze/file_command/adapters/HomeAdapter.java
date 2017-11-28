@@ -13,7 +13,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.amaze.file_command.R;
+import com.amaze.file_command.activities.MainActivity;
 import com.amaze.file_command.adapters.helper.ItemTouchHelperAdapter;
+import com.amaze.file_command.fragments.MusicFragment;
+import com.amaze.file_command.fragments.PhotoFragment;
+import com.amaze.file_command.fragments.VideoFragment;
 import com.amaze.file_command.utils.ClassBean;
 
 import java.util.Collections;
@@ -55,7 +59,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
             try {
                 final String res = mContext.getResources().getString(resId);
                 ((TextViewHolder)holder).mTextView.setText(res);
-                ((TextViewHolder)holder).mTextView.setOnClickListener(new View.OnClickListener() {
+                ((TextViewHolder)holder).mCardView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         gotoPage(res);
@@ -72,14 +76,18 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
     }
 
     public void gotoPage(String res){
+
         switch (res){
             case "Favorites":
                 break;
             case "Documents":
                 break;
             case "Picture":
+                Log.d(TAG, res);
+                ((MainActivity)mContext).addHomeFragment(new PhotoFragment());
                 break;
             case "Music":
+                ((MainActivity) mContext).addHomeFragment(new MusicFragment());
                 break;
             case "Archives":
                 break;
@@ -90,14 +98,13 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
             case "Recycler Bin":
                 break;
             case "Videos":
+                ((MainActivity) mContext).addHomeFragment(new VideoFragment());
                 break;
             case "Recent Files":
                 break;
             default:
                 break;
-
         }
-
     }
     @Override
     public int getItemCount() {

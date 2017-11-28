@@ -1032,10 +1032,10 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
             menu.findItem(R.id.home).setVisible(false);
             menu.findItem(R.id.history).setVisible(false);
             menu.findItem(R.id.extract).setVisible(false);
-            menu.findItem(R.id.dsort).setVisible(true);
-            menu.findItem(R.id.sortby).setVisible(true);
+            menu.findItem(R.id.dsort).setVisible(false);
+            menu.findItem(R.id.sortby).setVisible(false);
             menu.findItem(R.id.hiddenitems).setVisible(false);
-            menu.findItem(R.id.view).setVisible(true);
+            menu.findItem(R.id.view).setVisible(false);
             menu.findItem(R.id.paste).setVisible(false);
             menu.findItem(R.id.exit).setVisible(false);
             menu.findItem(R.id.sort).setVisible(false);
@@ -1869,17 +1869,6 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
         }
     }
 
-    public void FTPFragment(){
-        android.support.v4.app.FragmentTransaction transaction2 = getSupportFragmentManager().beginTransaction();
-        transaction2.replace(R.id.content_frame, new FTPServerFragment());
-        appBarLayout.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
-        pending_fragmentTransaction = transaction2;
-        if (!isDrawerLocked) mDrawerLayout.closeDrawer(mDrawerLinear);
-        else onDrawerClosed();
-        selectedStorage = SELECT_MINUS_2;
-        adapter.toggleChecked(false);
-    }
-
     public void addFragment(Fragment fragment){
         android.support.v4.app.FragmentTransaction transaction2 = getSupportFragmentManager().beginTransaction();
         transaction2.replace(R.id.content_frame, fragment);
@@ -1888,6 +1877,17 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
         if (!isDrawerLocked) mDrawerLayout.closeDrawer(mDrawerLinear);
         else onDrawerClosed();
 //        selectedStorage = SELECT_MINUS_2;
+        //transaction2.addToBackStack("SubFragment").commit();
+        adapter.toggleChecked(false);
+    }
+    public void addHomeFragment(Fragment fragment){
+        android.support.v4.app.FragmentTransaction transaction2 = getSupportFragmentManager().beginTransaction();
+        transaction2.replace(R.id.content_frame, fragment);
+        appBarLayout.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
+        pending_fragmentTransaction = transaction2;
+//        selectedStorage = SELECT_MINUS_2;
+        transaction2.addToBackStack("SubFragment");
+        onDrawerClosed();
         adapter.toggleChecked(false);
     }
     /**
@@ -1984,8 +1984,6 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
             return false;
         }
     }
-
-
 
     public void renameBookmark(final String title, final String path) {
         if (dataUtils.containsBooks(new String[]{title, path}) != -1) {
@@ -2459,7 +2457,6 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
             Uri apkURI = FileProvider.getUriForFile(
                     this,
                     "com.amaze.file_command.FILE_PROVIDER", file);
-            Log.d("CLickFIle","URI is: "+apkURI);
             intent.setDataAndType(apkURI, mimeType);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             startActivity(intent);

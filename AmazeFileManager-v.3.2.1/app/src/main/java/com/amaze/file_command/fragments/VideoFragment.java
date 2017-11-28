@@ -4,6 +4,9 @@ import android.app.Fragment;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -16,8 +19,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.amaze.file_command.R;
+import com.amaze.file_command.activities.MainActivity;
 import com.amaze.file_command.adapters.DocumentAdapter;
 import com.amaze.file_command.utils.ClassBean;
+import com.amaze.file_command.utils.color.ColorUsage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +38,8 @@ public class VideoFragment extends android.support.v4.app.Fragment {
     List<ClassBean> listClass = new ArrayList<>();
     private Context mContext;
     List<String> listImage;
+    private int skin_color, skinTwoColor, accentColor;
+    private MainActivity mainActivity;
 
     public VideoFragment(){
         mContext = getActivity();
@@ -43,6 +50,9 @@ public class VideoFragment extends android.support.v4.app.Fragment {
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        skin_color = mainActivity.getColorPreference().getColor(ColorUsage.PRIMARY);
+        skinTwoColor = mainActivity.getColorPreference().getColor(ColorUsage.PRIMARY_TWO);
+        accentColor = mainActivity.getColorPreference().getColor(ColorUsage.ACCENT);
         return inflater.inflate(R.layout.fragment_photo, container, false);
     }
 
@@ -70,7 +80,9 @@ public class VideoFragment extends android.support.v4.app.Fragment {
 
         listImage = new ArrayList<>();
         listImage = getVideoList();
-        DocumentAdapter adapter = new DocumentAdapter(getActivity(), listImage);
+        Bitmap icon = BitmapFactory.decodeResource(getActivity().getResources(),
+                R.drawable.music);
+        DocumentAdapter adapter = new DocumentAdapter(getActivity(), listImage, icon);
         recyclerView.setAdapter(adapter);
     }
     List<String> getVideoList() {
@@ -96,6 +108,25 @@ public class VideoFragment extends android.support.v4.app.Fragment {
         }
         return songlist;
     }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+        mainActivity = (MainActivity) getActivity();
+    }
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        setRetainInstance(true);
+        mainActivity.getAppbar().setTitle(getResources().getString(R.string.videos));
+        mainActivity.floatingActionButton.hideMenuButton(true);
+        mainActivity.buttonBarFrame.setVisibility(View.GONE);
+        mainActivity.supportInvalidateOptionsMenu();
+
+        mainActivity.updateViews(new ColorDrawable(MainActivity.currentTab==1 ?
+                skinTwoColor : skin_color));
+    }
+
     @Override
     public void onStop() {
         super.onStop();
