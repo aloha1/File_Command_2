@@ -40,6 +40,7 @@ import com.amaze.file_command.R;
 import com.amaze.file_command.activities.AddCategoryActivity;
 import com.amaze.file_command.activities.GoPremiumActivity;
 import com.amaze.file_command.activities.MainActivity;
+import com.amaze.file_command.activities.PreferencesActivity;
 import com.amaze.file_command.activities.ThemedActivity;
 import com.amaze.file_command.database.CloudHandler;
 import com.amaze.file_command.filesystem.HFile;
@@ -154,6 +155,9 @@ public class DrawerAdapter extends ArrayAdapter<Item> {
                     } else if(item.getPath().contains("video")){
                         ((MainActivity)context).onBackPressed();
                         ((MainActivity)context).addFragment(new VideoFragment());
+                    }else if(item.getPath().contains("setting")){
+                        Intent in = new Intent(context, PreferencesActivity.class);
+                        context.startActivity(in);
                     }else {
                         if (dataUtils.containsBooks(new String[]{item.getTitle(), item.getPath()}) != -1) {
 
@@ -219,18 +223,18 @@ public class DrawerAdapter extends ArrayAdapter<Item> {
             if (myChecked.get(position)) {
                 int accentColor = m.getColorPreference().getColor(ColorUsage.ACCENT);
                 if (utilsProvider.getAppTheme().equals(AppTheme.LIGHT)) {
-                    view.setBackgroundColor(Color.parseColor("#ffeeeeee"));
+                    //view.setBackgroundColor(Color.parseColor("#ffeeeeee"));
                 } else {
-                    view.setBackgroundColor(Color.parseColor("#ff424242"));
+                    //view.setBackgroundColor(Color.parseColor("#ff424242"));
                 }
                 imageView.setColorFilter(accentColor);
                 txtTitle.setTextColor(accentColor);
             } else {
                 if (utilsProvider.getAppTheme().equals(AppTheme.LIGHT)) {
-                    imageView.setColorFilter(Color.parseColor("#666666"));
+                    //imageView.setColorFilter(Color.parseColor("#666666"));
                     txtTitle.setTextColor(Utils.getColor(m, android.R.color.black));
                 } else {
-                    imageView.setColorFilter(Color.WHITE);
+                    //imageView.setColorFilter(Color.WHITE);
                     txtTitle.setTextColor(Utils.getColor(m, android.R.color.white));
                 }
             }

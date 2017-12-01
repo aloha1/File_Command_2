@@ -173,7 +173,13 @@ public class HomeFragment extends Fragment {
                 getActivity().startActivity(intent);
             }
         });
-
+        CardView cardViewProgress = view.findViewById(R.id.card_home_progress);
+        cardViewProgress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mainActivity.goToMain("");
+            }
+        });
         //final TextView occupiedSpaceText = (TextView) view.findViewById(R.id.occupiedSpace);
         //final TextView freeSpaceText = (TextView) view.findViewById(R.id.freeSpace);
         final ProgressBar progressIndicator = (ProgressBar) view.findViewById(R.id.indicator);

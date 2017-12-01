@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -16,13 +17,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.amaze.file_command.R;
+import com.amaze.file_command.activities.MainActivity;
 import com.amaze.file_command.adapters.PhotoAdapter;
 import com.amaze.file_command.utils.ClassBean;
+import com.amaze.file_command.utils.color.ColorUsage;
 
 import java.util.ArrayList;
 import java.util.List;
-
-
 
 /**
  * Created by Yunwen on 5/22/2017.
@@ -34,7 +35,8 @@ public class PhotoFragment extends Fragment {
     List<ClassBean> listClass = new ArrayList<>();
     private Context mContext;
     List<String> listImage;
-
+    private int skin_color, skinTwoColor, accentColor;
+    private MainActivity mainActivity;
     public PhotoFragment(){
         mContext = getActivity();
     }
@@ -44,6 +46,9 @@ public class PhotoFragment extends Fragment {
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        skin_color = mainActivity.getColorPreference().getColor(ColorUsage.PRIMARY);
+        skinTwoColor = mainActivity.getColorPreference().getColor(ColorUsage.PRIMARY_TWO);
+        accentColor = mainActivity.getColorPreference().getColor(ColorUsage.ACCENT);
         return inflater.inflate(R.layout.fragment_photo, container, false);
     }
 
@@ -98,6 +103,26 @@ public class PhotoFragment extends Fragment {
         }
         return listOfAllImages;
     }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+        mainActivity = (MainActivity) getActivity();
+    }
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        setRetainInstance(true);
+        mainActivity.getAppbar().setTitle(getResources().getString(R.string.text_tick_picture));
+        mainActivity.floatingActionButton.hideMenuButton(true);
+        mainActivity.buttonBarFrame.setVisibility(View.GONE);
+        mainActivity.supportInvalidateOptionsMenu();
+
+        mainActivity.updateViews(new ColorDrawable(MainActivity.currentTab==1 ?
+                skinTwoColor : skin_color));
+    }
+
     @Override
     public void onStop() {
         super.onStop();

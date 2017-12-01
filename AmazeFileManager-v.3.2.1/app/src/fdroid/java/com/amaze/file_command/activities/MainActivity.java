@@ -1436,7 +1436,10 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                 ContextCompat.getDrawable(this, R.drawable.premium)));
         sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_home), "home",
                 ContextCompat.getDrawable(this, R.drawable.home)));
-
+        sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_favorites), "favorites",
+                ContextCompat.getDrawable(this, R.drawable.favorite2)));
+        sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_recent_files), "rencent files",
+                ContextCompat.getDrawable(this, R.drawable.recent_files)));
         sectionItems.add(new SectionItem());
         storage_count = 0;
         for (String file : storageDirectories) {
@@ -1592,6 +1595,14 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                 ContextCompat.getDrawable(this, R.drawable.music)));
         sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_videos), "video",
                 ContextCompat.getDrawable(this, R.drawable.videos)));
+        sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_documents), "documents",
+                ContextCompat.getDrawable(this, R.drawable.documents)));
+        sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_archives), "archives",
+                ContextCompat.getDrawable(this, R.drawable.archives)));
+        sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_downloads), "downloads",
+                ContextCompat.getDrawable(this, R.drawable.downloads)));
+        sectionItems.add(new EntryItem(getResources().getString(R.string.setting), "setting",
+                ContextCompat.getDrawable(this, R.drawable.settings)));
         dataUtils.setList(sectionItems);
         adapter = new DrawerAdapter(this, this, sectionItems, this, sharedPref);
         mDrawerList.setAdapter(adapter);
@@ -1806,6 +1817,7 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
             }
 
         });
+        settingsButton.setVisibility(View.INVISIBLE);
         View appButton = findViewById(R.id.appbutton);
         if (getAppTheme().equals(AppTheme.DARK)) {
             appButton.setBackgroundResource(R.drawable.safr_ripple_black);
