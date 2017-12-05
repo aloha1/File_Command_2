@@ -1751,10 +1751,11 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
             }
         });
         drawerProfilePic = (RoundedImageView) drawerHeaderLayout.findViewById(R.id.profile_pic);
-        drawerProfilePic.setImageResource(R.drawable.me);
-        drawerProfilePic.drawableToBitmap(getDrawable(R.drawable.me));
+        drawerProfilePic.setImageResource(R.drawable.contact);
+        //drawerProfilePic.drawableToBitmap(getDrawable(R.drawable.me));
         mGoogleName = (TextView) drawerHeaderLayout.findViewById(R.id.account_header_drawer_name);
         mGoogleId = (TextView) drawerHeaderLayout.findViewById(R.id.account_header_drawer_email);
+        mGoogleName.setText(R.string.common_signin_button_text);
         setSupportActionBar(getAppbar().getToolbar());
         frameLayout = (FrameLayout) findViewById(R.id.content_frame);
         indicator_layout = findViewById(R.id.indicator_layout);

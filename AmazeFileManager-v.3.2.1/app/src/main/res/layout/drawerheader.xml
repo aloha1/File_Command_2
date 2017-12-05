@@ -25,9 +25,9 @@
         android:layout_marginLeft="16dp"
         android:elevation="2dp"
         android:scaleType="centerCrop"
-        android:visibility="invisible"
         android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"/>
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/me"/>
 
     <LinearLayout
         android:layout_width="match_parent"
