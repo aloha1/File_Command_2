@@ -15,6 +15,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
+import com.facebook.FacebookSdk;
+import com.firebase.client.Firebase;
 
 /**
  * Created by vishal on 7/12/16.
@@ -50,6 +52,8 @@ public class AppConfig extends Application {
         // disabling file exposure method check for api n+
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
+        Firebase.setAndroidContext(this);
+        FacebookSdk.sdkInitialize(this);
     }
 
     @Override

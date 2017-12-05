@@ -85,6 +85,7 @@ import android.widget.Toast;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.bgsltd.file_command.R;
+import com.bgsltd.file_command.activities.login.LoginMainActivity;
 import com.bgsltd.file_command.adapters.DrawerAdapter;
 import com.bgsltd.file_command.database.CloudContract;
 import com.bgsltd.file_command.database.CloudHandler;
@@ -1752,6 +1753,13 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
         });
         drawerProfilePic = (RoundedImageView) drawerHeaderLayout.findViewById(R.id.profile_pic);
         drawerProfilePic.setImageResource(R.drawable.contact);
+        drawerProfilePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mainActivity, LoginMainActivity.class);
+                startActivity(intent);
+            }
+        });
         //drawerProfilePic.drawableToBitmap(getDrawable(R.drawable.me));
         mGoogleName = (TextView) drawerHeaderLayout.findViewById(R.id.account_header_drawer_name);
         mGoogleId = (TextView) drawerHeaderLayout.findViewById(R.id.account_header_drawer_email);
