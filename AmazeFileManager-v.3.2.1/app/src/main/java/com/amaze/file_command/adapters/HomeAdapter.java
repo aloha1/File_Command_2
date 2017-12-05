@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.activities.MainActivity;
 import com.amaze.file_command.adapters.helper.ItemTouchHelperAdapter;
 import com.amaze.file_command.fragments.MusicFragment;

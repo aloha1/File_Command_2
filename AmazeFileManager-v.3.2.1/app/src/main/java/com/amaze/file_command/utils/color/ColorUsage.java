@@ -4,7 +4,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 
 /**
  * A ColorUsage is a key used to index color preferences in {@link ColorPreference}

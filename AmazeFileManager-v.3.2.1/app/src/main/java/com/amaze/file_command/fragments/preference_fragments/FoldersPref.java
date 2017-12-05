@@ -14,7 +14,7 @@ import android.widget.EditText;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.activities.PreferencesActivity;
 import com.amaze.file_command.database.UtilsHandler;
 import com.amaze.file_command.ui.views.preference.PathSwitchPreference;

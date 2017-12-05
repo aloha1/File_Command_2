@@ -4,7 +4,7 @@ import android.content.SharedPreferences;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.widget.Toolbar;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.activities.MainActivity;
 
 import static android.os.Build.VERSION.SDK_INT;

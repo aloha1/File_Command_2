@@ -14,7 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.filesystem.BaseFile;
 import com.amaze.file_command.utils.files.Futils;
 import com.amaze.file_command.utils.Utils;

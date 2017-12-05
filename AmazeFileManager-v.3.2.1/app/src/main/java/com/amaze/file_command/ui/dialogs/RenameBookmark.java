@@ -14,7 +14,7 @@ import android.view.View;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.utils.DataUtils;
 import com.amaze.file_command.utils.SimpleTextWatcher;
 import com.amaze.file_command.utils.provider.UtilitiesProviderInterface;

@@ -38,7 +38,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.fragments.preference_fragments.AdvancedSearchPref;
 import com.amaze.file_command.fragments.preference_fragments.ColorPref;
 import com.amaze.file_command.fragments.preference_fragments.FoldersPref;

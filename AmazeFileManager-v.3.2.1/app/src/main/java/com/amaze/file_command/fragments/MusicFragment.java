@@ -1,6 +1,5 @@
 package com.amaze.file_command.fragments;
 
-import android.app.Fragment;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
@@ -18,7 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.activities.MainActivity;
 import com.amaze.file_command.adapters.DocumentAdapter;
 import com.amaze.file_command.utils.ClassBean;

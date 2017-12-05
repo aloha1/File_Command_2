@@ -15,7 +15,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.support.v4.app.NotificationCompat;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 
 import java.util.ArrayList;
 

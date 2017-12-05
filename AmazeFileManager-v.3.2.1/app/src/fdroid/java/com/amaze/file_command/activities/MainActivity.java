@@ -46,7 +46,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.provider.DocumentsContract;
 import android.service.quicksettings.TileService;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
@@ -85,7 +84,7 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.adapters.DrawerAdapter;
 import com.amaze.file_command.database.CloudContract;
 import com.amaze.file_command.database.CloudHandler;
@@ -120,7 +119,6 @@ import com.amaze.file_command.ui.dialogs.RenameBookmark.BookmarkCallback;
 import com.amaze.file_command.ui.dialogs.SmbConnectDialog;
 import com.amaze.file_command.ui.dialogs.SmbConnectDialog.SmbConnectionListener;
 import com.amaze.file_command.ui.drawer.EntryItem;
-import com.amaze.file_command.ui.drawer.FragmentItem;
 import com.amaze.file_command.ui.drawer.Item;
 import com.amaze.file_command.ui.drawer.SectionItem;
 import com.amaze.file_command.ui.views.RoundedImageView;
@@ -159,7 +157,6 @@ import com.google.android.gms.ads.MobileAds;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.io.File;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -169,8 +166,6 @@ import eu.chainfire.libsuperuser.Shell;
 
 import static android.os.Build.VERSION.SDK_INT;
 import static com.amaze.file_command.activities.helper.Helper.fileExt;
-import static com.amaze.file_command.fragments.preference_fragments.Preffrag.PREFERENCE_SHOW_SIDEBAR_FOLDERS;
-import static com.amaze.file_command.fragments.preference_fragments.Preffrag.PREFERENCE_SHOW_SIDEBAR_QUICKACCESSES;
 
 public class MainActivity extends ThemedActivity implements OnRequestPermissionsResultCallback,
         SmbConnectionListener, DataChangeListener, BookmarkCallback,

@@ -23,7 +23,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.activities.MainActivity;
 import com.amaze.file_command.fragments.MainFragment;
 import com.amaze.file_command.fragments.preference_fragments.Preffrag;

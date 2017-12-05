@@ -47,7 +47,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.activities.DbViewer;
 import com.amaze.file_command.activities.MainActivity;
 import com.amaze.file_command.filesystem.BaseFile;

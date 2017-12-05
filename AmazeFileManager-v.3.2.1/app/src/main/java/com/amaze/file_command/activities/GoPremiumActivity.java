@@ -9,7 +9,7 @@ import android.util.DisplayMetrics;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 
 /**
  * Created by Yunwen on 11/6/2017.

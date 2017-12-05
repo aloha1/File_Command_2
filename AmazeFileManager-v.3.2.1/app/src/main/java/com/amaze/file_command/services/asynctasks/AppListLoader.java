@@ -9,7 +9,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.support.v4.content.AsyncTaskLoader;
 import android.text.format.Formatter;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.ui.LayoutElement;
 import com.amaze.file_command.utils.files.FileListSorter;
 import com.amaze.file_command.utils.InterestingConfigChange;

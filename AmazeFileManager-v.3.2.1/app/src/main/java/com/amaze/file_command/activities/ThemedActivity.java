@@ -11,7 +11,7 @@ import android.view.View;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.ui.dialogs.GeneralDialogCreation;
 import com.amaze.file_command.utils.PreferenceUtils;
 import com.amaze.file_command.utils.color.ColorUsage;

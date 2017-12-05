@@ -15,7 +15,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.provider.DocumentFile;
 import android.util.Log;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.activities.MainActivity;
 import com.amaze.file_command.database.CloudHandler;
 import com.amaze.file_command.exceptions.RootNotPermittedException;

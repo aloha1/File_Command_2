@@ -41,8 +41,8 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.amaze.file_command.BuildConfig;
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.BuildConfig;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.activities.AboutActivity;
 import com.amaze.file_command.activities.PreferencesActivity;
 import com.amaze.file_command.exceptions.CryptException;
@@ -56,7 +56,7 @@ import com.amaze.file_command.utils.theme.AppTheme;
 
 import java.util.List;
 
-import static com.amaze.file_command.R.string.feedback;
+import static com.bgsltd.file_command.R.string.feedback;
 
 public class Preffrag extends PreferenceFragment implements Preference.OnPreferenceClickListener {
 

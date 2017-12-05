@@ -5,7 +5,7 @@ import android.content.Context;
 import android.support.v4.provider.DocumentFile;
 import android.util.Log;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.filesystem.BaseFile;
 import com.amaze.file_command.filesystem.FileUtil;
 import com.amaze.file_command.filesystem.HFile;

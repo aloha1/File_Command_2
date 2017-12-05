@@ -34,7 +34,7 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.activities.InterAd_Activity;
 import com.amaze.file_command.activities.MainActivity;
 import com.amaze.file_command.exceptions.CryptException;

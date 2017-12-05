@@ -54,7 +54,7 @@ import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.activities.MainActivity;
 import com.amaze.file_command.adapters.RarAdapter;
 import com.amaze.file_command.filesystem.BaseFile;

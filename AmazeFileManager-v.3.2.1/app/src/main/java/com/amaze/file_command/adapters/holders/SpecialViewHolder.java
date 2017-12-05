@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.utils.Utils;
 import com.amaze.file_command.utils.provider.UtilitiesProviderInterface;
 import com.amaze.file_command.utils.theme.AppTheme;

@@ -6,7 +6,7 @@ import android.support.v4.util.Pair;
 import android.text.format.Formatter;
 import android.widget.TextView;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.filesystem.BaseFile;
 import com.amaze.file_command.utils.files.Futils;
 import com.amaze.file_command.utils.OnProgressUpdate;

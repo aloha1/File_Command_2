@@ -13,7 +13,7 @@ import android.provider.BaseColumns;
 import android.provider.MediaStore;
 import android.util.Log;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 
 import java.io.File;
 import java.io.FileOutputStream;

@@ -9,7 +9,7 @@ import android.text.format.Formatter;
 import android.view.View;
 
 import com.afollestad.materialdialogs.Theme;
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.filesystem.BaseFile;
 import com.amaze.file_command.ui.dialogs.GeneralDialogCreation;
 import com.amaze.file_command.utils.files.Futils;

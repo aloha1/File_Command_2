@@ -14,7 +14,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.CheckBox;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.activities.MainActivity;
 
 import java.io.File;

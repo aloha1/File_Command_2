@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 
 /**
  * @author Emmanuel

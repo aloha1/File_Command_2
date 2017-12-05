@@ -3,7 +3,7 @@ package com.amaze.file_command.fragments.preference_fragments;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 
 /**
  * @author Emmanuel

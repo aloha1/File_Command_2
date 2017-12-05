@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -12,13 +11,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.database.Category;
 import com.amaze.file_command.database.CategoryRepo;
 import com.amaze.file_command.ui.views.appbar.AppBar;
-import com.amaze.file_command.ui.views.appbar.SearchView;
 
 import java.util.ArrayList;
 import java.util.HashMap;

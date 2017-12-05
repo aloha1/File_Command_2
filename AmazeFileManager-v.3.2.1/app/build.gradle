@@ -16,7 +16,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.amaze.file_command"
+        applicationId "com.bgsltd.file_command"
         minSdkVersion 16
         targetSdkVersion 26
         versionCode 60

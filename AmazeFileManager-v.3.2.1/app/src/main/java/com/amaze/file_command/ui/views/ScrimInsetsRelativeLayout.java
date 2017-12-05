@@ -25,7 +25,7 @@ import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 
 /*
  * A layout that draws something in the insets passed to {@link #fitSystemWindows(Rect)}, i.e. the area above UI chrome

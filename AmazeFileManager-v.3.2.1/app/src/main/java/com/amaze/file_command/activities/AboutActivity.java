@@ -26,7 +26,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.utils.PreferenceUtils;
 import com.amaze.file_command.utils.Utils;
 import com.amaze.file_command.utils.theme.AppTheme;

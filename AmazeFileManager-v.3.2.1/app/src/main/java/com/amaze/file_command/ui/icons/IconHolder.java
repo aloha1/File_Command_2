@@ -38,7 +38,7 @@ import android.provider.MediaStore;
 import android.support.v4.content.ContextCompat;
 import android.widget.ImageView;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.database.CloudHandler;
 import com.amaze.file_command.utils.DataUtils;
 import com.amaze.file_command.utils.cloud.CloudUtil;

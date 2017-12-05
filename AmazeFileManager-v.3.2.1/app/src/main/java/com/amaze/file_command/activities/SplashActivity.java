@@ -5,11 +5,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
-import com.amaze.file_command.R;
-import com.amaze.file_command.base.BaseActivity;
+import com.bgsltd.file_command.R;
 
 
 public class SplashActivity extends Activity {

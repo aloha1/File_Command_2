@@ -17,7 +17,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.adapters.holders.EmptyViewHolder;
 import com.amaze.file_command.adapters.holders.ItemViewHolder;
 import com.amaze.file_command.adapters.holders.SpecialViewHolder;

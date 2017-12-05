@@ -29,7 +29,7 @@ import android.provider.MediaStore;
 import android.support.v4.provider.DocumentFile;
 import android.widget.Toast;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.database.CryptHandler;
 import com.amaze.file_command.exceptions.RootNotPermittedException;
 import com.amaze.file_command.filesystem.BaseFile;

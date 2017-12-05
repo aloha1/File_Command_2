@@ -30,7 +30,7 @@ import android.provider.MediaStore;
 import android.text.format.Formatter;
 import android.widget.Toast;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.activities.ThemedActivity;
 import com.amaze.file_command.database.UtilsHandler;
 import com.amaze.file_command.exceptions.CloudPluginException;

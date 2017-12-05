@@ -7,7 +7,7 @@ import android.os.Build;
 import android.preference.PreferenceManager;
 import android.widget.Toast;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.activities.MainActivity;
 import com.amaze.file_command.database.CryptHandler;
 import com.amaze.file_command.database.models.EncryptedEntry;

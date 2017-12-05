@@ -13,7 +13,7 @@ import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.text.format.Formatter;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.activities.MainActivity;
 import com.amaze.file_command.filesystem.BaseFile;
 import com.amaze.file_command.filesystem.FileUtil;

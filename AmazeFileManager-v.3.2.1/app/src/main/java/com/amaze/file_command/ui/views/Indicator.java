@@ -34,7 +34,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.Interpolator;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.utils.AnimUtils;
 
 import java.util.Arrays;

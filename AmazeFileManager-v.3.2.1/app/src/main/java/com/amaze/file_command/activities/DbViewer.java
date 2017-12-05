@@ -38,7 +38,7 @@ import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 import com.amaze.file_command.exceptions.RootNotPermittedException;
 import com.amaze.file_command.fragments.DbViewerFragment;
 import com.amaze.file_command.utils.PreferenceUtils;

@@ -6,7 +6,7 @@ import android.os.Build;
 import android.support.v7.widget.AppCompatEditText;
 import android.widget.EditText;
 
-import com.amaze.file_command.R;
+import com.bgsltd.file_command.R;
 
 /**
  * Created by vishal on 20/2/17.
