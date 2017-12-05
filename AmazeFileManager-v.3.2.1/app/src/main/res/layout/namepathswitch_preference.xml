@@ -8,7 +8,7 @@
               android:paddingLeft="16dip"
               android:paddingStart="16dip">
 
-    <com.amaze.file_command.ui.views.ThemedImageButton
+    <com.bgsltd.file_command.ui.views.ThemedImageButton
         android:id="@+id/edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
         android:minWidth="36dp"
         app:srcCompat="@drawable/disableable_ic_edit_24dp"/>
 
-    <com.amaze.file_command.ui.views.ThemedImageButton
+    <com.bgsltd.file_command.ui.views.ThemedImageButton
         android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

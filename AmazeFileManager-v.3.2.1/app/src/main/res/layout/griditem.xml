@@ -89,7 +89,7 @@
                 android:baselineAligned="false">
 
 
-                <com.amaze.file_command.ui.views.ThemedTextView
+                <com.bgsltd.file_command.ui.views.ThemedTextView
                     android:id="@+id/firstline"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
