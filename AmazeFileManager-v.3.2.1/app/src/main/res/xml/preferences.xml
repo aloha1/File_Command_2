@@ -166,7 +166,7 @@
     <PreferenceCategory android:title="@string/about">
         <Preference
             android:key="about"
-            android:title="@string/aboutFileManager"
+            android:title="About File Command"
             />
         <Preference
             android:key="feedback"
