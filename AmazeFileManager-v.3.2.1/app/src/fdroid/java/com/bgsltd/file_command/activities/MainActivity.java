@@ -167,6 +167,7 @@ import eu.chainfire.libsuperuser.Shell;
 
 import static android.os.Build.VERSION.SDK_INT;
 import static com.bgsltd.file_command.activities.helper.Helper.fileExt;
+import static com.bgsltd.file_command.fragments.preference_fragments.Preffrag.PREFERENCE_SHOW_SIDEBAR_QUICKACCESSES;
 
 public class MainActivity extends ThemedActivity implements OnRequestPermissionsResultCallback,
         SmbConnectionListener, DataChangeListener, BookmarkCallback,
@@ -722,6 +723,7 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                 floatingActionButton.close(true);
             } else {
                 getCurrentMainFragment().goBack();
+                //firstGoToMain();
             }
         } else if (fragment instanceof ZipViewer) {
             ZipViewer zipViewer = (ZipViewer) getSupportFragmentManager().findFragmentById(R.id.content_frame);
@@ -1432,10 +1434,27 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                 ContextCompat.getDrawable(this, R.drawable.premium)));
         sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_home), "home",
                 ContextCompat.getDrawable(this, R.drawable.home)));
-        sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_favorites), "favorites",
-                ContextCompat.getDrawable(this, R.drawable.favorite2)));
-        sectionItems.add(new EntryItem(getResources().getString(R.string.text_tick_recent_files), "rencent files",
-                ContextCompat.getDrawable(this, R.drawable.recent_files)));
+        storage_count = 0;
+        for (String file : storageDirectories) {
+            File f = new File(file);
+            String name;
+            Drawable icon1 = ContextCompat.getDrawable(this, R.drawable.favorite2);
+            if ("/storage/emulated/legacy".equals(file) || "/storage/emulated/0".equals(file)) {
+                name = getResources().getString(R.string.text_tick_favorites);
+                sectionItems.add(new EntryItem(name, file, icon1));
+            }
+        }
+        storage_count = 0;
+        for (String file : storageDirectories) {
+            File f = new File(file);
+            String name;
+            Drawable icon1 = ContextCompat.getDrawable(this, R.drawable.recent_files);
+            if ("/storage/emulated/legacy".equals(file) || "/storage/emulated/0".equals(file)) {
+                name = getResources().getString(R.string.recent);
+                sectionItems.add(new EntryItem(name, file, icon1));
+            }
+        }
+
         sectionItems.add(new SectionItem());
         storage_count = 0;
         for (String file : storageDirectories) {
@@ -1455,11 +1474,11 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                 name = "OTG";
                 icon1 = ContextCompat.getDrawable(this, R.drawable.ic_usb_white_48dp);
             }
-//            else name = f.getName();
-//            if (!f.isDirectory() || f.canExecute()) {
-//                storage_count++;
-//                sectionItems.add(new EntryItem(name, file, icon1));
-//            }
+            else name = f.getName();
+            if (!f.isDirectory() || f.canExecute()) {
+                storage_count++;
+                sectionItems.add(new EntryItem(name, file, icon1));
+            }
         }
         sectionItems.add(new EntryItem(getResources().getString(R.string.ftp), "ftp",
                 ContextCompat.getDrawable(this, R.drawable.ftp)));
@@ -1545,8 +1564,8 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
 //                sectionItems.add(new SectionItem());
 //            }
 //        }
-        Boolean[] quickAccessPref = TinyDB.getBooleanArray(sharedPref, QuickAccessPref.KEY,
-                QuickAccessPref.DEFAULT);
+//        Boolean[] quickAccessPref = TinyDB.getBooleanArray(sharedPref, QuickAccessPref.KEY,
+//                QuickAccessPref.DEFAULT);
 
 //        if (sharedPref.getBoolean(PREFERENCE_SHOW_SIDEBAR_QUICKACCESSES, true)) {
 //            if (quickAccessPref[0])
