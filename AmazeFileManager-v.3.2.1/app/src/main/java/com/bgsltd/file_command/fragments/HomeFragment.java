@@ -136,6 +136,7 @@ public class HomeFragment extends Fragment {
     private void initView(View view){
         imageAnalyzer = view.findViewById(R.id.image_home_analyzer);
         imageEditor = view.findViewById(R.id.image_home_editor);
+
         imageEditor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -151,8 +152,23 @@ public class HomeFragment extends Fragment {
                 mainActivity.startActivity(intent);
             }
         });
+
         CardView cardViewProgress = view.findViewById(R.id.card_home_progress);
         cardViewProgress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mainActivity.goToMain("");
+            }
+        });
+        CardView cardExternalProgress = view.findViewById(R.id.card_home_progress_external);
+        cardExternalProgress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mainActivity.goToMain("");
+            }
+        });
+        CardView cardSDCardProgress = view.findViewById(R.id.card_home_progress_sdcard);
+        cardSDCardProgress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mainActivity.goToMain("");
@@ -161,6 +177,8 @@ public class HomeFragment extends Fragment {
         //final TextView occupiedSpaceText = (TextView) view.findViewById(R.id.occupiedSpace);
         //final TextView freeSpaceText = (TextView) view.findViewById(R.id.freeSpace);
         final ProgressBar progressIndicator = (ProgressBar) view.findViewById(R.id.indicator);
+        final ProgressBar progressIndicatorExternal = (ProgressBar) view.findViewById(R.id.indicator_external_storage);
+        final ProgressBar progressIndicatorSDCard = (ProgressBar) view.findViewById(R.id.indicator_sdcard_storage);
         final float totalSpace = DeviceMemory.getInternalStorageSpace();
         final float occupiedSpace = DeviceMemory.getInternalUsedSpace();
         final float freeSpace = DeviceMemory.getInternalFreeSpace();
@@ -176,6 +194,10 @@ public class HomeFragment extends Fragment {
         if (null != progressIndicator) {
             progressIndicator.setMax((int) totalSpace);
             progressIndicator.setProgress((int)occupiedSpace);
+            progressIndicatorExternal.setMax((int) totalSpace);
+            progressIndicatorExternal.setProgress((int)occupiedSpace);
+            progressIndicatorSDCard.setMax((int) totalSpace);
+            progressIndicatorSDCard.setProgress((int)occupiedSpace);
         }
     }
 

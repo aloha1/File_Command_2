@@ -712,6 +712,8 @@
     <string name="text_tick_home">Home</string>
     <string name="text_tick_picture">Picture</string>
     <string name="text_tick_internal_shared_storage">Internal Shared Storage</string>
+    <string name="text_tick_external_shared_storage">External Shared Storage</string>
+    <string name="text_tick_sdcard_shared_storage">SD Card</string>
     <string name="text_tick_ftp">FTP</string>
     <string name="text_tick_music">Music</string>
     <string name="text_tick_videos">Videos</string>
