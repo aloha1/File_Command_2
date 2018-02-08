@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ic_vote_dane_bg"
+    android:gravity="center">
+
+
+    <ImageView
+        android:id="@+id/img_close_ads"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:src="@drawable/ic_close_circle_black"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:text="All functions of this app will be unlocked and all the ads will be disabled for next 24 hours after watching the video"/>
+
+
+    <TextView
+        android:id="@+id/txt_watch_ads"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_margin="15dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:text="Watch Video"/>
+
+</FrameLayout>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1066873173204",
+    "firebase_url": "https://file-commande.firebaseio.com",
+    "project_id": "file-commande",
+    "storage_bucket": "file-commande.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1066873173204:android:9f1ac2d1fcaa75d8",
+        "android_client_info": {
+          "package_name": "com.bgsltd.filecommande"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1066873173204-7ds2vahsc10jgq4tmi6v0nqiaupjv5lm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBN49AspNGy1Ohs39uv79X4MJglQPC31eQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

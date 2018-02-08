@@ -1,0 +1,99 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '25.0.0'
+
+    packagingOptions {
+        exclude 'proguard-project.txt'
+        exclude 'project.properties'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/DEPENDENCIES'
+    }
+
+    defaultConfig {
+        applicationId "com.bgsltd.filecommande"
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 11
+        versionName "1.11"
+    }
+
+    signingConfigs {
+        release
+        config
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+
+    productFlavors {
+        fdroid {
+            buildConfigField "boolean", "IS_VERSION_FDROID", "true"
+            signingConfig signingConfigs.config
+        }
+        play {
+            buildConfigField "boolean", "IS_VERSION_FDROID", "false"
+            signingConfig signingConfigs.config
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+
+    compile project(':StickyHeadersRecyclerView')
+
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+    compile 'com.android.support:design:23.1.1'
+    compile 'com.github.junrar:junrar:0.7'
+    compile 'org.apache.commons:commons-compress:1.10'
+    compile 'com.android.support:appcompat-v7:23.1.0'
+    compile 'com.android.support:cardview-v7:23.1.0'
+    // Google Play Services
+    playCompile 'com.google.android.gms:play-services-plus:11.6.0'
+    compile 'org.sufficientlysecure:donations:2.3'
+    playCompile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4'
+    compile 'com.github.clans:fab:1.6.1'
+    compile('com.github.afollestad.material-dialogs:core:0.8.5.3@aar') {
+        transitive = true
+    }
+
+//    compile 'com.google.android.gms:play-services-ads:11.2.2'
+//    compile 'com.google.android.gms:play-services-ads:11.6.0'
+    compile 'com.google.firebase:firebase-ads:11.6.0'
+    compile 'com.google.android.gms:play-services-ads:11.6.0'
+    compile('com.crashlytics.sdk.android:crashlytics:2.8.0@aar') {
+        transitive = true;
+    }
+}
+
+apply plugin: 'com.google.gms.google-services'
